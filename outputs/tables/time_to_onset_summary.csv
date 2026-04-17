@@ -1,0 +1,196 @@
+pt,n_reports,median_tto,mean_tto,q25_tto,q75_tto
+Vomiting,93,2.0,18.4,0.0,8.0
+Nausea,89,1.0,14.2,0.0,8.0
+Constipation,47,1.0,10.3,0.0,8.5
+Dizziness,35,1.0,19.1,0.0,7.5
+Dyspepsia,31,3.0,8.6,0.0,11.5
+Hyperhidrosis,24,0.5,5.8,0.0,3.2
+Urinary retention,23,0.0,2.0,0.0,1.5
+Abdominal pain upper,17,2.0,24.6,1.0,20.0
+Vision blurred,16,1.0,11.9,0.0,5.5
+Somnolence,14,0.5,37.3,0.0,27.8
+Dry mouth,14,1.0,3.5,0.2,3.5
+Fatigue,14,2.5,32.7,0.0,12.0
+Insomnia,13,0.0,5.6,0.0,6.0
+Abdominal discomfort,13,3.0,5.1,1.0,7.0
+Headache,12,1.0,33.7,0.0,8.0
+Gastrooesophageal reflux disease,12,2.0,6.3,1.0,11.5
+Off label use,12,3.5,5.9,1.5,8.2
+Tremor,10,0.5,19.2,0.0,7.2
+Drooling,10,2.0,3.7,0.0,4.5
+Dysuria,9,1.0,2.9,0.0,2.0
+Diarrhoea,8,5.0,13.9,1.0,17.2
+"Hallucination, auditory",8,8.5,7.5,0.0,14.0
+Heart rate increased,7,1.0,7.9,0.0,8.0
+Blood pressure increased,7,8.0,9.9,0.0,11.0
+Feeling abnormal,7,0.0,2.6,0.0,2.0
+Anxiety,7,0.0,0.9,0.0,0.0
+Suicidal ideation,6,2.5,7.8,0.5,12.0
+Dysphagia,6,1.0,4.2,0.0,8.8
+Treatment noncompliance,6,7.5,31.2,0.0,21.8
+Brain fog,5,1.0,4.6,0.0,8.0
+Asthenia,5,2.0,4.8,0.0,8.0
+Malaise,5,0.0,0.4,0.0,1.0
+Hallucination,5,11.0,21.6,7.0,32.0
+Hypertension,5,1.0,2.2,0.0,1.0
+"Hallucination, visual",5,11.0,8.8,5.0,14.0
+Salivary hypersecretion,5,14.0,15.8,6.0,20.0
+Tachycardia,4,4.5,6.2,0.8,10.0
+Paranoia,4,1.0,3.8,0.8,4.0
+Condition aggravated,4,3.5,5.2,0.0,8.8
+Dysphonia,4,4.0,32.8,0.0,36.8
+Urinary tract infection,4,18.0,18.5,6.0,30.5
+Hot flush,4,0.5,3.0,0.0,3.5
+Palpitations,4,4.0,4.2,3.0,5.2
+Aggression,4,24.0,26.0,10.5,39.5
+Chest pain,4,11.0,12.0,7.0,16.0
+Drug ineffective,4,7.0,12.0,0.0,19.0
+Gait disturbance,3,5.0,6.0,3.0,8.5
+Movement disorder,3,0.0,6.3,0.0,9.5
+Feeling hot,3,0.0,0.0,0.0,0.0
+Muscular weakness,3,0.0,1.7,0.0,2.5
+Hypoaesthesia,3,11.0,11.0,8.5,13.5
+Chills,3,0.0,1.3,0.0,2.0
+Dyspnoea,3,0.0,1.3,0.0,2.0
+Disturbance in attention,3,1.0,0.7,0.5,1.0
+Dehydration,3,8.0,10.0,7.0,12.0
+Cold sweat,3,1.0,6.7,0.5,10.0
+Decreased appetite,3,13.0,12.0,11.0,13.5
+Depression,3,14.0,12.0,10.5,14.5
+Anger,3,17.0,14.3,9.0,21.0
+Weight decreased,3,12.0,154.3,10.5,227.0
+Rash,3,15.0,92.7,10.5,136.0
+Visual impairment,3,0.0,0.0,0.0,0.0
+Psychotic disorder,3,34.0,161.0,23.0,235.5
+Abdominal pain,2,7.0,7.0,3.5,10.5
+Abdominal distension,2,1.5,1.5,0.8,2.2
+Blepharospasm,2,17.5,17.5,10.8,24.2
+Akathisia,2,0.0,0.0,0.0,0.0
+Blood glucose decreased,2,25.5,25.5,23.8,27.2
+Enuresis,2,17.5,17.5,9.2,25.8
+Agitation,2,13.0,13.0,6.5,19.5
+Accidental overdose,2,8.0,8.0,5.5,10.5
+Sedation,2,11.5,11.5,10.2,12.8
+Retching,2,3.5,3.5,2.2,4.8
+Pollakiuria,2,23.0,23.0,17.5,28.5
+Pain,2,1.0,1.0,0.5,1.5
+Nightmare,2,0.5,0.5,0.2,0.8
+Pharyngeal swelling,2,8.5,8.5,6.2,10.8
+Tachyphrenia,2,13.5,13.5,6.8,20.2
+Speech disorder,2,0.0,0.0,0.0,0.0
+Therapy cessation,2,8.0,8.0,7.0,9.0
+Throat tightness,2,0.5,0.5,0.2,0.8
+Weight increased,2,1.5,1.5,0.8,2.2
+Restlessness,2,5.5,5.5,2.8,8.2
+Incorrect dose administered,2,64.5,64.5,46.2,82.8
+Vertigo,2,0.5,0.5,0.2,0.8
+Urticaria,2,3.0,3.0,2.0,4.0
+Impaired gastric emptying,2,21.0,21.0,13.5,28.5
+Mood altered,2,77.0,77.0,38.5,115.5
+Mood swings,2,14.5,14.5,14.2,14.8
+Irritability,2,80.5,80.5,53.2,107.8
+Lethargy,2,10.5,10.5,9.2,11.8
+Intrusive thoughts,2,0.5,0.5,0.2,0.8
+Increased appetite,2,0.0,0.0,0.0,0.0
+Hiccups,2,4.5,4.5,3.8,5.2
+Cystitis,2,10.0,10.0,5.0,15.0
+Confusional state,2,0.5,0.5,0.2,0.8
+Death,2,13.5,13.5,8.2,18.8
+Delusion,2,20.5,20.5,13.8,27.2
+COVID-19,1,442.0,442.0,442.0,442.0
+Emotional disorder,1,37.0,37.0,37.0,37.0
+Eating disorder,1,0.0,0.0,0.0,0.0
+Dysgeusia,1,0.0,0.0,0.0,0.0
+Dyskinesia,1,8.0,8.0,8.0,8.0
+Dizziness postural,1,19.0,19.0,19.0,19.0
+Drug intolerance,1,14.0,14.0,14.0,14.0
+Concussion,1,0.0,0.0,0.0,0.0
+Dissociation,1,1.0,1.0,1.0,1.0
+Completed suicide,1,16.0,16.0,16.0,16.0
+Cognitive disorder,1,16.0,16.0,16.0,16.0
+Bladder pain,1,11.0,11.0,11.0,11.0
+Blood pressure systolic increased,1,54.0,54.0,54.0,54.0
+Bruxism,1,0.0,0.0,0.0,0.0
+Blunted affect,1,123.0,123.0,123.0,123.0
+Amphetamines positive,1,8.0,8.0,8.0,8.0
+Alopecia,1,0.0,0.0,0.0,0.0
+Bedridden,1,12.0,12.0,12.0,12.0
+Asthma,1,1.0,1.0,1.0,1.0
+Apathy,1,37.0,37.0,37.0,37.0
+Anuria,1,1.0,1.0,1.0,1.0
+Anaphylactic reaction,1,8.0,8.0,8.0,8.0
+Acne,1,1.0,1.0,1.0,1.0
+Blood creatinine increased,1,4.0,4.0,4.0,4.0
+Behaviour disorder,1,1.0,1.0,1.0,1.0
+Blood pressure decreased,1,50.0,50.0,50.0,50.0
+Blood lactic acid increased,1,8.0,8.0,8.0,8.0
+Catheter site discomfort,1,8.0,8.0,8.0,8.0
+Homicidal ideation,1,2.0,2.0,2.0,2.0
+Eye movement disorder,1,2.0,2.0,2.0,2.0
+Extrapyramidal disorder,1,2.0,2.0,2.0,2.0
+Epistaxis,1,1.0,1.0,1.0,1.0
+Extra dose administered,1,21.0,21.0,21.0,21.0
+Myalgia,1,0.0,0.0,0.0,0.0
+Muscle tightness,1,0.0,0.0,0.0,0.0
+Muscle spasms,1,0.0,0.0,0.0,0.0
+Memory impairment,1,1.0,1.0,1.0,1.0
+Micturition disorder,1,1.0,1.0,1.0,1.0
+Micturition urgency,1,5.0,5.0,5.0,5.0
+Migraine,1,1.0,1.0,1.0,1.0
+Mobility decreased,1,92.0,92.0,92.0,92.0
+Loss of consciousness,1,0.0,0.0,0.0,0.0
+Mallory-Weiss syndrome,1,8.0,8.0,8.0,8.0
+Hypersomnia,1,0.0,0.0,0.0,0.0
+Hypovolaemia,1,8.0,8.0,8.0,8.0
+Hypophagia,1,12.0,12.0,12.0,12.0
+Laziness,1,0.0,0.0,0.0,0.0
+Libido increased,1,27.0,27.0,27.0,27.0
+Limb discomfort,1,2.0,2.0,2.0,2.0
+Gastroenteritis,1,8.0,8.0,8.0,8.0
+Foot deformity,1,0.0,0.0,0.0,0.0
+Flat affect,1,0.0,0.0,0.0,0.0
+Feeling of despair,1,14.0,14.0,14.0,14.0
+Feeling jittery,1,7.0,7.0,7.0,7.0
+Feeling of body temperature change,1,0.0,0.0,0.0,0.0
+Fall,1,0.0,0.0,0.0,0.0
+Faeces discoloured,1,0.0,0.0,0.0,0.0
+Haemorrhoids,1,27.0,27.0,27.0,27.0
+Haematochezia,1,42.0,42.0,42.0,42.0
+Glomerular filtration rate decreased,1,38.0,38.0,38.0,38.0
+Generalised anxiety disorder,1,16.0,16.0,16.0,16.0
+Gastrointestinal disorder,1,9.0,9.0,9.0,9.0
+General physical health deterioration,1,12.0,12.0,12.0,12.0
+Hepatic pain,1,0.0,0.0,0.0,0.0
+Osteoarthritis,1,16.0,16.0,16.0,16.0
+Seizure,1,0.0,0.0,0.0,0.0
+Schizoaffective disorder bipolar type,1,16.0,16.0,16.0,16.0
+Schizoaffective disorder,1,8.0,8.0,8.0,8.0
+Reading disorder,1,10.0,10.0,10.0,10.0
+Psychiatric symptom,1,7.0,7.0,7.0,7.0
+Pruritus,1,13.0,13.0,13.0,13.0
+Pupillary reflex impaired,1,4.0,4.0,4.0,4.0
+Pyrexia,1,1.0,1.0,1.0,1.0
+Product dose omission issue,1,13.0,13.0,13.0,13.0
+Product administration error,1,0.0,0.0,0.0,0.0
+Nervousness,1,10.0,10.0,10.0,10.0
+Obesity,1,16.0,16.0,16.0,16.0
+Peripheral swelling,1,5.0,5.0,5.0,5.0
+Paraesthesia,1,6.0,6.0,6.0,6.0
+Prescribed overdose,1,13.0,13.0,13.0,13.0
+Priapism,1,9.0,9.0,9.0,9.0
+Negative thoughts,1,0.0,0.0,0.0,0.0
+Overdose,1,33.0,33.0,33.0,33.0
+Tinnitus,1,1.0,1.0,1.0,1.0
+Tardive dyskinesia,1,17.0,17.0,17.0,17.0
+Soliloquy,1,7.0,7.0,7.0,7.0
+Skin burning sensation,1,0.0,0.0,0.0,0.0
+Sensory overload,1,14.0,14.0,14.0,14.0
+Swelling,1,0.0,0.0,0.0,0.0
+Self-injurious ideation,1,231.0,231.0,231.0,231.0
+Thinking abnormal,1,17.0,17.0,17.0,17.0
+Systemic lupus erythematosus,1,1.0,1.0,1.0,1.0
+Unresponsive to stimuli,1,20.0,20.0,20.0,20.0
+Urine odour abnormal,1,0.0,0.0,0.0,0.0
+Urinary incontinence,1,0.0,0.0,0.0,0.0
+Volvulus,1,23.0,23.0,23.0,23.0
+Vomiting projectile,1,0.0,0.0,0.0,0.0

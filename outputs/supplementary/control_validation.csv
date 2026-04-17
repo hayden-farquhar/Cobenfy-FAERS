@@ -1,0 +1,12 @@
+drug,pt,a,n_drug,ror,ror_lower,ror_upper,signal,type,expectation
+olanzapine,WEIGHT INCREASED,432,6926,5.5774,5.0553,6.1533,True,positive,Expected strong signal
+olanzapine,HYPERGLYCAEMIA,31,6926,3.1295,2.2007,4.4503,True,positive,Expected signal
+olanzapine,DIABETES MELLITUS,59,6926,2.9295,2.2665,3.7865,True,positive,Expected signal
+risperidone,HYPERPROLACTINAEMIA,140,6254,208.6438,167.8521,259.3487,True,positive,Expected strong signal
+risperidone,TARDIVE DYSKINESIA,65,6254,27.0282,20.9572,34.8579,True,positive,Expected signal
+quetiapine,SOMNOLENCE,519,9074,6.8976,6.3043,7.5468,True,positive,Expected strong signal
+quetiapine,WEIGHT INCREASED,599,9074,5.9642,5.4840,6.4864,True,positive,Expected signal
+aripiprazole,AKATHISIA,239,5516,119.3386,102.7588,138.5934,True,positive,Expected signal
+olanzapine,URINARY RETENTION,72,6926,6.6360,5.2499,8.3879,True,negative,Not expected
+aripiprazole,WEIGHT INCREASED,367,5516,5.9632,5.3598,6.6346,True,negative,Weak/no signal expected
+quetiapine,HYPERPROLACTINAEMIA,55,9074,39.0578,29.2712,52.1164,True,negative,Weak signal expected

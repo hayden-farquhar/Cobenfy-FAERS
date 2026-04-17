@@ -1,0 +1,12 @@
+soc,n_pts,n_signals,total_reports,max_ror,median_ror
+Gastrointestinal disorders,14,12,956,60.98,6.83
+Psychiatric disorders,13,12,152,81.71,10.55
+Nervous system disorders,8,6,170,25.98,3.68
+Renal and urinary disorders,2,2,108,44.03,25.80
+Cardiac disorders,1,1,22,3.88,3.88
+Eye disorders,1,1,50,5.65,5.65
+General disorders,3,1,90,6.96,0.40
+Skin and subcutaneous tissue disorders,1,1,46,6.55,6.55
+Investigations,2,0,25,1.47,1.04
+Product issues,1,0,97,0.91,0.91
+Vascular disorders,1,0,18,1.23,1.23

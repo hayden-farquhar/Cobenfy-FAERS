@@ -1,0 +1,193 @@
+drug_a,drug_b,pt,a_cobenfy,n_strata_used,mh_ror,mh_ror_lower95,mh_ror_upper95,mh_pvalue,mh_significant,bonferroni_sig
+xanomeline-trospium,olanzapine,NAUSEA,142,6,6.4272,0.6569,62.8831,0.1098,False,False
+xanomeline-trospium,olanzapine,VOMITING,133,6,5.1967,0.6187,43.6475,0.1291,False,False
+xanomeline-trospium,olanzapine,CONSTIPATION,71,6,4.5880,0.3599,58.4805,0.2407,False,False
+xanomeline-trospium,olanzapine,DYSPEPSIA,39,6,8.2670,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,DIARRHOEA,13,6,1.0814,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,TACHYCARDIA,9,6,0.4062,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,HYPERTENSION,7,6,0.6678,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,BLOOD PRESSURE INCREASED,11,6,12.1801,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,WEIGHT INCREASED,6,6,0.1240,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,HYPERGLYCAEMIA,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,DIABETES MELLITUS,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,METABOLIC SYNDROME,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,BLOOD GLUCOSE INCREASED,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,DYSLIPIDAEMIA,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,SOMNOLENCE,21,6,0.5849,0.0169,20.2050,0.7666,False,False
+xanomeline-trospium,olanzapine,SEDATION,4,6,0.2056,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,AKATHISIA,3,6,0.1207,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,DYSTONIA,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,TREMOR,17,6,0.7876,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,EXTRAPYRAMIDAL DISORDER,2,6,0.0645,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,TARDIVE DYSKINESIA,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,PARKINSONISM,2,6,0.1101,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,HYPERPROLACTINAEMIA,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,GALACTORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,AMENORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,olanzapine,DRY MOUTH,22,6,6.7935,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,URINARY RETENTION,51,6,7.6730,0.3061,192.3303,0.2151,False,False
+xanomeline-trospium,olanzapine,VISION BLURRED,27,6,4.2676,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,DROOLING,18,6,12.9339,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,SALIVARY HYPERSECRETION,9,6,1.1036,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,HYPERHIDROSIS,30,6,3.6385,0.0000,inf,1.0000,False,False
+xanomeline-trospium,olanzapine,QT PROLONGATION,0,6,,,,,False,False
+xanomeline-trospium,risperidone,NAUSEA,142,6,4.7550,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,VOMITING,133,6,5.1471,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,CONSTIPATION,71,6,7.9028,0.4769,130.9668,0.1490,False,False
+xanomeline-trospium,risperidone,DYSPEPSIA,39,6,6.4405,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,DIARRHOEA,13,6,1.1808,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,TACHYCARDIA,9,6,0.7653,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,HYPERTENSION,7,6,1.2808,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,BLOOD PRESSURE INCREASED,11,6,11.8864,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,WEIGHT INCREASED,6,6,0.1304,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,HYPERGLYCAEMIA,0,6,,,,,False,False
+xanomeline-trospium,risperidone,DIABETES MELLITUS,0,6,,,,,False,False
+xanomeline-trospium,risperidone,METABOLIC SYNDROME,0,6,,,,,False,False
+xanomeline-trospium,risperidone,BLOOD GLUCOSE INCREASED,0,6,,,,,False,False
+xanomeline-trospium,risperidone,DYSLIPIDAEMIA,0,6,,,,,False,False
+xanomeline-trospium,risperidone,SOMNOLENCE,21,6,0.6649,0.0167,26.4316,0.8281,False,False
+xanomeline-trospium,risperidone,SEDATION,4,6,0.2138,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,AKATHISIA,3,6,0.1168,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,DYSTONIA,0,6,,,,,False,False
+xanomeline-trospium,risperidone,TREMOR,17,6,0.7300,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,EXTRAPYRAMIDAL DISORDER,2,6,0.0355,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,TARDIVE DYSKINESIA,0,6,,,,,False,False
+xanomeline-trospium,risperidone,PARKINSONISM,2,6,0.1637,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,HYPERPROLACTINAEMIA,0,6,,,,,False,False
+xanomeline-trospium,risperidone,GALACTORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,risperidone,AMENORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,risperidone,DRY MOUTH,22,6,7.2370,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,URINARY RETENTION,51,6,6.7691,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,VISION BLURRED,27,6,6.0044,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,DROOLING,18,6,4.2848,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,SALIVARY HYPERSECRETION,9,6,0.9848,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,HYPERHIDROSIS,30,6,7.5235,0.0000,inf,1.0000,False,False
+xanomeline-trospium,risperidone,QT PROLONGATION,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,NAUSEA,142,6,6.6994,0.6462,69.4552,0.1109,False,False
+xanomeline-trospium,aripiprazole,VOMITING,133,6,8.1442,0.8745,75.8494,0.0654,False,False
+xanomeline-trospium,aripiprazole,CONSTIPATION,71,6,4.4937,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,DYSPEPSIA,39,6,6.7361,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,DIARRHOEA,13,6,0.9979,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,TACHYCARDIA,9,6,1.1041,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,HYPERTENSION,7,6,0.3917,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,BLOOD PRESSURE INCREASED,11,6,7.2095,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,WEIGHT INCREASED,6,6,0.1071,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,HYPERGLYCAEMIA,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,DIABETES MELLITUS,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,METABOLIC SYNDROME,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,BLOOD GLUCOSE INCREASED,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,DYSLIPIDAEMIA,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,SOMNOLENCE,21,6,0.8190,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,SEDATION,4,6,0.1850,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,AKATHISIA,3,6,0.0805,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,DYSTONIA,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,TREMOR,17,6,0.5890,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,EXTRAPYRAMIDAL DISORDER,2,6,0.0663,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,TARDIVE DYSKINESIA,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,PARKINSONISM,2,6,0.1326,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,HYPERPROLACTINAEMIA,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,GALACTORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,AMENORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,aripiprazole,DRY MOUTH,22,6,3.8829,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,URINARY RETENTION,51,6,6.5660,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,VISION BLURRED,27,6,2.9303,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,DROOLING,18,6,11.2100,0.2385,526.9671,0.2186,False,False
+xanomeline-trospium,aripiprazole,SALIVARY HYPERSECRETION,9,6,0.8107,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,HYPERHIDROSIS,30,6,3.3320,0.0000,inf,1.0000,False,False
+xanomeline-trospium,aripiprazole,QT PROLONGATION,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,NAUSEA,142,6,5.8006,0.5926,56.7769,0.1309,False,False
+xanomeline-trospium,quetiapine,VOMITING,133,6,4.4831,0.4881,41.1804,0.1848,False,False
+xanomeline-trospium,quetiapine,CONSTIPATION,71,6,3.2930,0.3136,34.5731,0.3205,False,False
+xanomeline-trospium,quetiapine,DYSPEPSIA,39,6,4.1579,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,DIARRHOEA,13,6,0.6152,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,TACHYCARDIA,9,6,0.4320,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,HYPERTENSION,7,6,0.2024,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,BLOOD PRESSURE INCREASED,11,6,9.3710,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,WEIGHT INCREASED,6,6,0.1756,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,HYPERGLYCAEMIA,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,DIABETES MELLITUS,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,METABOLIC SYNDROME,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,BLOOD GLUCOSE INCREASED,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,DYSLIPIDAEMIA,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,SOMNOLENCE,21,6,0.4900,0.0145,16.5163,0.6911,False,False
+xanomeline-trospium,quetiapine,SEDATION,4,6,0.3116,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,AKATHISIA,3,6,0.2989,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,DYSTONIA,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,TREMOR,17,6,0.8711,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,EXTRAPYRAMIDAL DISORDER,2,6,0.1209,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,TARDIVE DYSKINESIA,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,PARKINSONISM,2,6,0.1491,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,HYPERPROLACTINAEMIA,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,GALACTORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,AMENORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,quetiapine,DRY MOUTH,22,6,1.4882,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,URINARY RETENTION,51,6,11.1173,0.2884,428.6058,0.1961,False,False
+xanomeline-trospium,quetiapine,VISION BLURRED,27,6,3.8482,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,DROOLING,18,6,8.6220,0.3580,207.6686,0.1845,False,False
+xanomeline-trospium,quetiapine,SALIVARY HYPERSECRETION,9,6,3.7536,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,HYPERHIDROSIS,30,6,2.0261,0.0000,inf,1.0000,False,False
+xanomeline-trospium,quetiapine,QT PROLONGATION,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,NAUSEA,142,6,6.1605,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,VOMITING,133,6,7.5706,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,CONSTIPATION,71,6,6.0963,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,DYSPEPSIA,39,6,11.8552,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,DIARRHOEA,13,6,1.5363,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,TACHYCARDIA,9,6,0.4544,0.0062,33.2128,0.7187,False,False
+xanomeline-trospium,lurasidone,HYPERTENSION,7,6,1.1250,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,BLOOD PRESSURE INCREASED,11,6,3.2204,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,WEIGHT INCREASED,6,6,0.1627,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,HYPERGLYCAEMIA,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,DIABETES MELLITUS,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,METABOLIC SYNDROME,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,BLOOD GLUCOSE INCREASED,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,DYSLIPIDAEMIA,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,SOMNOLENCE,21,6,1.0612,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,SEDATION,4,6,0.0939,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,AKATHISIA,3,6,0.0509,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,DYSTONIA,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,TREMOR,17,6,1.3049,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,EXTRAPYRAMIDAL DISORDER,2,6,0.0318,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,TARDIVE DYSKINESIA,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,PARKINSONISM,2,6,0.9587,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,HYPERPROLACTINAEMIA,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,GALACTORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,AMENORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,lurasidone,DRY MOUTH,22,6,3.4498,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,URINARY RETENTION,51,6,12.7026,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,VISION BLURRED,27,6,7.7797,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,DROOLING,18,6,,,,,False,False
+xanomeline-trospium,lurasidone,SALIVARY HYPERSECRETION,9,6,4.9017,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,HYPERHIDROSIS,30,6,3.9741,0.0000,inf,1.0000,False,False
+xanomeline-trospium,lurasidone,QT PROLONGATION,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,NAUSEA,142,6,12.4963,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,VOMITING,133,6,20.6963,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,CONSTIPATION,71,6,317.8842,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,DYSPEPSIA,39,6,26.3912,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,DIARRHOEA,13,6,0.6034,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,TACHYCARDIA,9,6,1.5306,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,HYPERTENSION,7,6,1.8380,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,BLOOD PRESSURE INCREASED,11,6,4.2488,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,WEIGHT INCREASED,6,6,0.1694,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,HYPERGLYCAEMIA,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,DIABETES MELLITUS,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,METABOLIC SYNDROME,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,BLOOD GLUCOSE INCREASED,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,DYSLIPIDAEMIA,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,SOMNOLENCE,21,6,1.1997,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,SEDATION,4,6,0.3181,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,AKATHISIA,3,6,0.0717,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,DYSTONIA,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,TREMOR,17,6,0.6115,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,EXTRAPYRAMIDAL DISORDER,2,6,0.1110,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,TARDIVE DYSKINESIA,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,PARKINSONISM,2,6,0.2807,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,HYPERPROLACTINAEMIA,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,GALACTORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,AMENORRHOEA,0,6,,,,,False,False
+xanomeline-trospium,brexpiprazole,DRY MOUTH,22,6,4.8604,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,URINARY RETENTION,51,6,10.8218,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,VISION BLURRED,27,6,4.5726,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,DROOLING,18,6,9.4343,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,SALIVARY HYPERSECRETION,9,6,4.2944,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,HYPERHIDROSIS,30,6,1.7872,0.0000,inf,1.0000,False,False
+xanomeline-trospium,brexpiprazole,QT PROLONGATION,0,6,,,,,False,False

@@ -1,0 +1,211 @@
+================================================================================
+OSF PRE-REGISTRATION — SUBMISSION METADATA
+================================================================================
+Copy-paste each field below into the corresponding OSF registration form field.
+Registration template: OSF Preregistration (https://osf.io/prereg/)
+================================================================================
+
+
+--- PROJECT TITLE ---
+
+Real-World Pharmacovigilance of Xanomeline-Trospium (Cobenfy/KarXT) Using FDA FAERS Post-Marketing Data: A Disproportionality Analysis With Active-Comparator Assessment
+
+
+--- PROJECT DESCRIPTION ---
+
+This study applies standard pharmacovigilance disproportionality methods (Reporting Odds Ratio, Proportional Reporting Ratio, Empirical Bayesian Geometric Mean, and Information Component) to FDA Adverse Event Reporting System (FAERS) data to characterise the real-world safety profile of xanomeline-trospium (Cobenfy), the first non-dopaminergic (muscarinic M1/M4 agonist) antipsychotic approved in over 30 years (FDA approval: September 26, 2024). We analyse approximately 18 months of post-marketing data (Q4 2024 through Q1 2026) with active-comparator analyses against six established D2-antagonist antipsychotics (olanzapine, risperidone, aripiprazole, quetiapine, lurasidone, brexpiprazole). Prespecified hypotheses test whether Cobenfy's real-world adverse event profile reflects its novel muscarinic mechanism — specifically, higher gastrointestinal and cardiovascular signal rates but lower metabolic and extrapyramidal signal rates compared to D2 antagonists. Reporting follows the READUS-PV guideline.
+
+
+--- NARRATIVE SUMMARY ---
+
+Xanomeline-trospium (marketed as Cobenfy) is the first genuinely new class of antipsychotic in over three decades. Unlike every other antipsychotic on the market, which works by blocking dopamine D2 receptors, Cobenfy targets muscarinic M1 and M4 receptors — a completely different pharmacological approach. The FDA approved it in September 2024 for schizophrenia in adults, and it has been rapidly adopted, with quarterly sales reaching approximately $43 million by late 2025. The clinical trials (EMERGENT-1 through -5 and ARISE) established that Cobenfy reduces psychotic symptoms without the weight gain, metabolic syndrome, and movement disorders that plague existing antipsychotics. However, its novel mechanism brings its own side-effect profile — nausea, vomiting, constipation, and cardiovascular effects like tachycardia and hypertension — reflecting the muscarinic agonism that is central to how the drug works. The trospium component was specifically added to block peripheral muscarinic receptors in the gut and bladder, reducing but not eliminating gastrointestinal side effects. What clinical trials cannot fully capture is how a drug behaves once it enters routine clinical practice. Patients in trials are carefully selected and closely monitored; real-world patients are older, sicker, take more concomitant medications, and are followed less intensively. The FDA Adverse Event Reporting System (FAERS) captures spontaneous reports of suspected adverse drug reactions from clinicians, patients, and manufacturers across the United States and internationally. Now that approximately 18 months of post-marketing data have accumulated, it is possible to conduct the first systematic pharmacovigilance analysis of Cobenfy using this real-world data. This study will apply four established statistical methods — the Reporting Odds Ratio, Proportional Reporting Ratio, Empirical Bayesian Geometric Mean, and Information Component — to identify adverse events that are reported disproportionately often with Cobenfy compared to all other drugs in the database. A signal is defined conservatively: at least three of the four methods must simultaneously flag a drug-event pair as disproportionate. Critically, we go beyond standard disproportionality by conducting active-comparator analyses. Rather than comparing Cobenfy against the entire FAERS database (which includes drugs used for completely different conditions), we directly compare it against six widely-used D2-antagonist antipsychotics — olanzapine, risperidone, aripiprazole, quetiapine, lurasidone, and brexpiprazole. This head-to-head approach partially controls for the fact that all of these drugs are used in schizophrenia patients, who may have different baseline health profiles than the general population reporting to FAERS. Thirty-two specific adverse event terms have been prespecified for this comparison, covering gastrointestinal, cardiovascular, metabolic, extrapyramidal, hormonal, sedative, and anticholinergic domains. We pre-register four directional hypotheses. First, we expect gastrointestinal events (nausea, vomiting, constipation) to produce the strongest signals, consistent with the muscarinic mechanism. Second, we expect cardiovascular signals (tachycardia, hypertension) to be detectable. Third, we hypothesise that metabolic adverse events — the major tolerability burden of existing antipsychotics — will be absent or markedly lower with Cobenfy. Fourth, we hypothesise that extrapyramidal symptoms (movement disorders such as dystonia, akathisia, and tardive dyskinesia) will similarly be absent or significantly reduced, reflecting the absence of D2 receptor blockade. Additional analyses include Weibull time-to-onset modelling to characterise whether adverse events emerge early (suggesting direct toxicity), at intermediate latency, or late (suggesting cumulative effects). An exploratory analysis examines whether co-prescription of CYP2D6 inhibitors — drugs like bupropion, paroxetine, and fluoxetine that can increase xanomeline exposure by inhibiting its metabolism — modifies the adverse event profile. Four prespecified sensitivity analyses will test robustness: restricting to primary-suspect reports only, US reports only, healthcare-professional reporters only, and assessing the Weber effect (the well-documented phenomenon whereby novel drugs attract disproportionately high reporting in their first one to two years on market, which can inflate apparent signals). This study is explicitly signal-generating, not causal. Disproportionality in a spontaneous reporting database identifies statistical associations that warrant further investigation; it does not establish that a drug caused an adverse event. We state this limitation, along with concerns about channelling bias, underreporting, and the absence of prescription-volume denominators, a priori. The study follows the READUS-PV reporting guideline for pharmacovigilance disproportionality analyses. No FAERS data have been downloaded or queried at the time of this registration.
+
+
+--- CONTRIBUTORS ---
+
+Hayden Farquhar, MBBS MPHTM
+
+
+--- LICENSE ---
+
+CC-By Attribution 4.0 International
+
+
+--- TAGS / KEYWORDS ---
+
+pharmacovigilance, FAERS, disproportionality analysis, xanomeline-trospium, Cobenfy, KarXT, antipsychotic, muscarinic agonist, drug safety, adverse events, post-marketing surveillance, schizophrenia, reporting odds ratio, EBGM, signal detection
+
+
+--- CATEGORY ---
+
+Project
+
+
+--- AFFILIATED INSTITUTIONS ---
+
+[Enter your institutional affiliation]
+
+
+================================================================================
+REGISTRATION FORM FIELDS — OSF Preregistration Template
+================================================================================
+
+
+--- 1. STUDY INFORMATION ---
+
+
+>> 1.1 Hypotheses <<
+
+H1 (Gastrointestinal signals — primary hypothesis): Gastrointestinal adverse events (nausea, vomiting, constipation, dyspepsia) will produce the strongest disproportionality signals for xanomeline-trospium, consistent with muscarinic agonism as the dose-limiting toxicity observed in EMERGENT clinical trials.
+
+H2 (Cardiovascular signals): Tachycardia and hypertension will show detectable disproportionality signals, reflecting the cardiovascular effects of muscarinic receptor modulation observed at higher doses in EMERGENT trials.
+
+H3 (Metabolic advantage): Metabolic adverse events (weight increased, hyperglycaemia, diabetes mellitus, dyslipidaemia) will show either no disproportionality signal or significantly lower reporting rates compared to D2-antagonist comparators, consistent with the absence of D2/5-HT2C-mediated metabolic disruption.
+
+H4 (Extrapyramidal symptom advantage): Extrapyramidal symptoms (dystonia, akathisia, parkinsonism, tardive dyskinesia) will show no disproportionality signal for xanomeline-trospium and significantly lower reporting rates compared to D2-antagonist comparators, consistent with the non-dopaminergic mechanism.
+
+
+--- 2. DESIGN PLAN ---
+
+
+>> 2.1 Study type <<
+
+Observational study — retrospective case/non-case disproportionality analysis of spontaneous adverse event reports.
+
+
+>> 2.2 Blinding <<
+
+No blinding is applicable. This is a retrospective analysis of a publicly available adverse event database.
+
+
+>> 2.3 Study design <<
+
+We analyse spontaneous adverse event reports submitted to the FDA Adverse Event Reporting System (FAERS) from Q4 2024 (first quarter post-approval of xanomeline-trospium) through the most recent available quarter at time of analysis (anticipated Q1 2026, approximately 18 months post-approval). The study applies four standard disproportionality methods to detect adverse event signals. Active-comparator analyses use only xanomeline-trospium and comparator drug reports (not the full FAERS database) for 32 prespecified Preferred Terms. Reporting follows READUS-PV (Khouri et al., Drug Safety, 2024).
+
+
+--- 3. SAMPLING PLAN ---
+
+
+>> 3.1 Existing data <<
+
+Registration prior to accessing the data. FAERS quarterly data files have not been downloaded or queried at time of registration.
+
+
+>> 3.2 Data collection procedures <<
+
+Data will be downloaded from the FDA FAERS quarterly ASCII data extract archive (https://fis.fda.gov/extensions/FPD-QDE-FAERS/FPD-QDE-FAERS.html). All quarterly files from Q4 2024 through the most recent available quarter will be downloaded. Seven data tables per quarter will be extracted: DEMO, DRUG, REAC, OUTC, INDI, THER, RPSR.
+
+
+>> 3.3 Sample size <<
+
+All reports in the FAERS database during the study period will be included. No sampling or sample size calculation is applicable. We anticipate 200–2,000 xanomeline-trospium reports based on prescribing uptake data (~$43 million in Q3 2025 sales). Active comparators (e.g., olanzapine) have 50,000+ cumulative reports historically.
+
+
+>> 3.4 Sample size rationale <<
+
+This is a complete-database analysis. All available reports meeting inclusion criteria are included. Signal detection is limited by the number of case reports per drug-event pair; a minimum threshold of 3 reports per pair is required for inclusion.
+
+
+--- 4. VARIABLES ---
+
+
+>> 4.1 Manipulated variables <<
+
+None. This is an observational study.
+
+
+>> 4.2 Measured variables <<
+
+Index drug: Xanomeline-trospium (Cobenfy/KarXT), identified by substring matching on FAERS drugname and prod_ai fields (patterns: XANOMELINE, COBENFY, KARXT, KAR-XT).
+
+Active comparators: Olanzapine, risperidone, aripiprazole, quetiapine, lurasidone, brexpiprazole — each identified by generic and brand name patterns.
+
+Case definition: Drug appears with role_cod = 'PS' (primary suspect) or 'SS' (secondary suspect).
+
+Outcome measures for each drug-PT pair:
+  - Proportional Reporting Ratio (PRR) with 95% CI and chi-squared
+  - Reporting Odds Ratio (ROR) with 95% CI
+  - Empirical Bayesian Geometric Mean (EBGM) with EB05
+  - Information Component (IC) with IC025
+
+Signal definition: A drug-PT pair is classified as a signal when 3 or more of the 4 methods above simultaneously meet their thresholds (PRR >= 2 with chi-squared >= 4 and n >= 3; ROR lower 95% CI > 1; EB05 >= 2; IC025 > 0).
+
+Active-comparator prespecified PTs (32 total):
+  GI: Nausea, Vomiting, Constipation, Dyspepsia, Diarrhoea
+  CV: Tachycardia, Hypertension, Blood pressure increased
+  Metabolic: Weight increased, Hyperglycaemia, Diabetes mellitus, Metabolic syndrome, Blood glucose increased, Dyslipidaemia
+  EPS: Dystonia, Akathisia, Parkinsonism, Tardive dyskinesia, Extrapyramidal disorder, Tremor
+  Hormonal: Hyperprolactinaemia, Galactorrhoea, Amenorrhoea
+  Sedation: Somnolence, Sedation
+  Cardiac conduction: Electrocardiogram QT prolonged
+  Anticholinergic: Urinary retention, Dry mouth, Vision blurred
+  Other: Insomnia, Headache, Dizziness
+
+
+>> 4.3 Indices <<
+
+No composite indices are used.
+
+
+--- 5. ANALYSIS PLAN ---
+
+
+>> 5.1 Statistical models <<
+
+1. Standard disproportionality: Four metrics (PRR, ROR, EBGM, IC) computed for every xanomeline-trospium-PT pair with >= 3 reports, against the full FAERS database as reference.
+
+2. Active-comparator ROR: 2x2 tables constructed using xanomeline-trospium reports as cases and each comparator's reports as the reference (not the full FAERS database), for each of 32 prespecified PTs.
+
+3. Time-to-onset: Weibull distribution fitted to time-to-onset (event date minus therapy start date) for signals with >= 20 reports with available dates. Categorised as early (<30 days), intermediate (30-180 days), late (>180 days).
+
+
+>> 5.2 Transformations <<
+
+Continuity correction of +0.5 applied to all cells of the 2x2 contingency table before computing PRR, ROR, and IC. EBGM uses Bayesian shrinkage via a two-component gamma mixture prior (MGPS; DuMouchel 1999). Additive Bayesian smoothing (+0.5) used for IC computation.
+
+
+>> 5.3 Inference criteria <<
+
+Primary analysis: Signal defined as >= 3 of 4 methods simultaneously positive.
+Multiple testing: Benjamini-Hochberg FDR at alpha = 0.05 applied to ROR p-values.
+Active-comparator: Bonferroni correction across 192 tests (32 PTs x 6 comparators), yielding threshold p < 0.00026.
+
+
+>> 5.4 Data exclusion <<
+
+Reports will be deduplicated by caseid, retaining only the most recent caseversion. Drug-PT pairs with fewer than 3 reports are excluded from analysis.
+
+
+>> 5.5 Missing data <<
+
+Reports with missing adverse event terms (pt) are excluded from the reaction analysis. Missing age, sex, and reporter country do not lead to exclusion from the primary analysis but are reported descriptively. Time-to-onset analysis is restricted to reports with both event_dt and start_dt available and where time-to-onset is 0-730 days.
+
+
+>> 5.6 Exploratory analyses <<
+
+1. CYP2D6 interaction analysis: Descriptive comparison of adverse event profiles in xanomeline-trospium cases with and without concomitant CYP2D6 inhibitors (bupropion, paroxetine, fluoxetine). This is explicitly exploratory due to expected low statistical power.
+
+2. Subgroup analyses: Time-to-onset stratified by age (<65 vs >= 65 years) and sex.
+
+
+--- 6. OTHER ---
+
+
+>> 6.1 Other <<
+
+Sensitivity analyses (pre-planned):
+  1. Restrict to primary suspect only (role_cod = 'PS')
+  2. Restrict to US reports only (reporter_country = 'US')
+  3. Restrict to healthcare professional reporters (occp_cod in MD, HP, OT, PH, RN)
+  4. Weber effect quarterly assessment of report counts and signal strength trends
+
+Known limitations (stated a priori):
+  - Spontaneous reporting is subject to underreporting, reporting bias, and Weber effect
+  - Channelling bias: Cobenfy may be prescribed to treatment-resistant patients
+  - Disproportionality does not establish causation
+  - Absence of denominator (prescription volume) data
+  - Drug name matching may miss non-standard entries
+
+Software: Python 3.14 with DuckDB, pandas, numpy, scipy. Disproportionality functions validated against openEBGM R package (Pearson r > 0.9999).
+
+Analysis code will be deposited on GitHub upon manuscript acceptance.

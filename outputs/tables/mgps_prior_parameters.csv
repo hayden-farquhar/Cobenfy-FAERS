@@ -1,0 +1,2 @@
+scope,n_pairs_fitted,n_unique_drugs,alpha,a1,b1,mean1,a2,b2,mean2,neg_log_lik,converged
+database-wide,673567,6781,0.327913,0.412092,0.001399,294.529861,0.817970,0.110980,7.370448,3081734.982124,True
