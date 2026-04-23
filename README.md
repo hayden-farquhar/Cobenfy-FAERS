@@ -166,4 +166,4 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 If you use this code or data, please cite the associated publication and this repository:
 
-> Farquhar HJ. Real-world pharmacovigilance of xanomeline-trospium (Cobenfy) in FDA FAERS [Code]. Zenodo. https://doi.org/10.5281/zenodo.19623168
+> Farquhar H. Real-world pharmacovigilance of xanomeline-trospium (Cobenfy) in FDA FAERS [Code]. Zenodo. https://doi.org/10.5281/zenodo.19623168

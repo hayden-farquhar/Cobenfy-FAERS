@@ -7,7 +7,7 @@ to assess robustness of the primary findings.
 Sensitivity analyses:
     1. Primary suspect only (role_cod = 'PS') — excludes secondary suspect
     2. US reports only (reporter_country = 'US') — reduces geographic heterogeneity
-    3. HCP reporters only (occp_cod in ('MD', 'HP', 'OT')) — higher quality reports
+    3. HCP reporters only (occp_cod in ('MD', 'HP', 'OT', 'PH', 'RN')) — higher quality reports
     4. Weber effect assessment — quarterly signal strength trends to detect
        stimulated reporting for a novel drug
 
