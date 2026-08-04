@@ -35,12 +35,13 @@ import numpy as np
 from scipy import stats
 from scipy.special import digamma
 from scipy.optimize import minimize
+import os
 from pathlib import Path
 import time
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DB_PATH = PROJECT_ROOT / "data" / "processed" / "faers.duckdb"
-OUTPUT_DIR = PROJECT_ROOT / "outputs" / "tables"
+DB_PATH = Path(os.environ["FAERS_DB"]) if os.environ.get("FAERS_DB") else (PROJECT_ROOT / "data" / "processed" / "faers.duckdb")
+OUTPUT_DIR = (Path(os.environ["FAERS_OUT"]) if os.environ.get("FAERS_OUT") else (PROJECT_ROOT / "outputs")) / "tables"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ── Configuration ───────────────────────────────────────────────────────────

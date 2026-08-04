@@ -1,9 +1,30 @@
 {
+  "title": "Real-World Safety Profile of Xanomeline-Trospium (Cobenfy) in FDA FAERS: analysis code",
+  "upload_type": "software",
+  "description": "Reproducibility repository for the disproportionality analysis of xanomeline-trospium (Cobenfy/KarXT) adverse event reports in the FDA Adverse Event Reporting System (FAERS), Q4 2024 to Q1 2026 (six quarterly files). Includes the full pipeline (download, deduplication, RxNorm standardisation, four-method disproportionality battery, active-comparator analyses, Weibull time-to-onset, MGPS refit, sensitivity and validation analyses, signal classification, and figure/table generation).",
   "creators": [
     {
       "name": "Farquhar, Hayden",
       "orcid": "0009-0002-6226-440X",
       "affiliation": "Independent Researcher"
+    }
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "pharmacovigilance",
+    "disproportionality analysis",
+    "FAERS",
+    "xanomeline-trospium",
+    "Cobenfy",
+    "schizophrenia",
+    "reporting odds ratio"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.17605/OSF.IO/2PWUD",
+      "relation": "isSupplementTo",
+      "scheme": "doi"
     }
   ]
 }

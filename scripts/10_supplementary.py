@@ -271,10 +271,10 @@ def analysis_3_time_stratified(con):
     print("  ANALYSIS 3: Time-Stratified Disproportionality")
     print("=" * 70)
 
-    # Define periods: early (Q4 2024 + Q1 2025) vs late (Q2-Q4 2025)
+    # Define periods: early (Q4 2024 + Q1 2025) vs late (Q2 2025 - Q1 2026)
     periods = {
         "early (Q4'24–Q1'25)": "SUBSTRING(dem.fda_dt,1,6) <= '202503'",
-        "late (Q2'25–Q4'25)": "SUBSTRING(dem.fda_dt,1,6) > '202503'",
+        "late (Q2'25–Q1'26)": "SUBSTRING(dem.fda_dt,1,6) > '202503'",
     }
 
     key_pts = ["NAUSEA", "VOMITING", "CONSTIPATION", "URINARY RETENTION",

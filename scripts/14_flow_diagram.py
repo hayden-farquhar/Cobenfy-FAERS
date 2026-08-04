@@ -11,6 +11,7 @@ Requires: data/processed/faers.duckdb
 """
 
 import duckdb
+import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -116,6 +117,20 @@ def get_counts(con):
         WHERE fda_dt IS NOT NULL AND LENGTH(fda_dt) >= 6
     """).fetchone()[0]
 
+    # Consensus signal + classification counts read from pipeline outputs
+    # (not hardcoded) so the flow diagram cannot drift from the analysis.
+    consensus = pd.read_csv(
+        PROJECT_ROOT / "outputs" / "tables" / "signals_cobenfy_consensus.csv"
+    )
+    counts["n_consensus"] = len(consensus)
+    clsf = pd.read_csv(
+        PROJECT_ROOT / "outputs" / "supplementary" / "signal_classification_final.csv"
+    )
+    vc = clsf["classification"].value_counts()
+    counts["n_pharm"] = int(vc.get("Pharmacological", 0))
+    counts["n_disease"] = int(vc.get("Disease manifestation", 0))
+    counts["n_indeterminate"] = int(vc.get("Indeterminate", 0))
+
     return counts
 
 
@@ -143,7 +158,7 @@ def draw_flow_diagram(counts):
     # Box 1: FAERS download
     ax.text(5, 12.5,
             f"FAERS quarterly ASCII files downloaded\n"
-            f"Q4 2024 -- Q4 2025 (5 quarters)",
+            f"Q4 2024 -- Q1 2026 (6 quarters)",
             ha="center", va="center", fontsize=9, bbox=box_main)
 
     # Arrow
@@ -226,8 +241,9 @@ def draw_flow_diagram(counts):
     # Box 7: Final signals
     ax.text(5, 3.7,
             "CONSENSUS SIGNALS\n"
-            "56 signals (>= 3/4 methods positive)\n"
-            "37 pharmacological  |  19 disease manifestations",
+            f"{counts['n_consensus']} signals (>= 3/4 methods positive)\n"
+            f"{counts['n_pharm']} pharmacological  |  {counts['n_disease']} disease  |  "
+            f"{counts['n_indeterminate']} indeterminate",
             ha="center", va="center", fontsize=9, fontweight="bold",
             bbox=box_final)
 
@@ -248,11 +264,12 @@ def draw_flow_diagram(counts):
                                 linestyle="--"))
 
     # Sensitivity analyses box (bottom)
+    # Subset case counts match manuscript Table 4 (6-quarter reconciled values).
     ax.text(5, 2.3,
             "Sensitivity Analyses\n"
-            "PS-only (n=1,416)  |  US-only (n=1,408)  |  HCP-only (n=706)\n"
-            "Serious-only (n=131)  |  Monotherapy (n=1,298)\n"
-            "Reporter-stratified  |  Age-sex stratified  |  Sequential (5 quarters)",
+            f"PS-only (n={counts['cobenfy_ps']:,})  |  US-only (n=1,737)  |  HCP-only (n=709)\n"
+            "Serious-only (n=173)  |  Monotherapy (n=1,591)\n"
+            "Reporter-stratified  |  Age-sex stratified  |  Sequential (6 quarters)",
             ha="center", va="center", fontsize=8, bbox=box_main)
     ax.annotate("", xy=(5, 2.8), xytext=(5, 3.2),
                 arrowprops=dict(arrowstyle="->", color="#333"))

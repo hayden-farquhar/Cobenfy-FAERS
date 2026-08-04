@@ -20,12 +20,13 @@ Output: data/processed/faers.duckdb
 
 import duckdb
 import time
+import os
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-PARSED_DIR = PROJECT_ROOT / "data" / "raw" / "parsed"
+PARSED_DIR = Path(os.environ["FAERS_PARSED"]) if os.environ.get("FAERS_PARSED") else (PROJECT_ROOT / "data" / "raw" / "parsed")
 PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
-DB_PATH = PROCESSED_DIR / "faers.duckdb"
+DB_PATH = Path(os.environ["FAERS_DB"]) if os.environ.get("FAERS_DB") else (PROCESSED_DIR / "faers.duckdb")
 
 PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 

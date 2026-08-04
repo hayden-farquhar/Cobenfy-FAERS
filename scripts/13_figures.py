@@ -63,23 +63,21 @@ def fig1_forest_plot():
     # Sort by ROR descending; cap display at top 30 for readability
     df = df.sort_values("ror", ascending=True).tail(35)
 
-    # Load disease classification if available
-    disease_path = SUPP_DIR / "signal_classification_disease_vs_drug.csv"
-    disease_df = pd.read_csv(disease_path) if disease_path.exists() else None
+    # Load final (expert-adjudicated) 3-category classification if available
+    class_path = SUPP_DIR / "signal_classification_final.csv"
+    class_df = pd.read_csv(class_path) if class_path.exists() else None
+    CLASS_COLOR = {"Pharmacological": "#2166AC", "Disease manifestation": "#999999",
+                   "Indeterminate": "#FFFFFF"}
+    class_map = {}
+    if class_df is not None:
+        class_map = {str(p).upper(): c for p, c in zip(class_df["pt"], class_df["classification"])}
 
     fig, ax = plt.subplots(figsize=(8, max(6, len(df) * 0.28)))
 
     y_pos = range(len(df))
-    colors = []
-    for _, r in df.iterrows():
-        if disease_df is not None:
-            match = disease_df[disease_df["pt"] == r["pt"]]
-            if len(match) > 0 and match.iloc[0]["disease_manifestation"]:
-                colors.append("#999999")
-            else:
-                colors.append("#2166AC")
-        else:
-            colors.append("#2166AC")
+    colors = [CLASS_COLOR.get(class_map.get(str(r["pt"]).upper(), "Pharmacological"), "#2166AC")
+              for _, r in df.iterrows()]
+    edgecols = ["#333333" if c == "#FFFFFF" else "white" for c in colors]
 
     # Plot CIs
     for i, (_, r) in enumerate(df.iterrows()):
@@ -92,7 +90,7 @@ def fig1_forest_plot():
 
     # Plot point estimates
     ax.scatter([r["ror"] for _, r in df.iterrows()], y_pos,
-               c=colors, s=30, zorder=5, edgecolors="white", linewidth=0.5)
+               c=colors, s=30, zorder=5, edgecolors=edgecols, linewidth=0.6)
 
     # Reference line at ROR = 1
     ax.axvline(x=1, color="red", linestyle="--", linewidth=0.8, alpha=0.7)
@@ -109,17 +107,19 @@ def fig1_forest_plot():
                 fontsize=7, va="center", ha="left", color="#555555")
 
     # Legend
-    if disease_df is not None:
+    if class_df is not None:
         legend_elements = [
             Line2D([0], [0], marker='o', color='w', markerfacecolor='#2166AC',
                    markersize=7, label='Pharmacological signal'),
             Line2D([0], [0], marker='o', color='w', markerfacecolor='#999999',
                    markersize=7, label='Disease manifestation'),
+            Line2D([0], [0], marker='o', color='w', markerfacecolor='#FFFFFF',
+                   markeredgecolor='#333333', markersize=7, label='Indeterminate'),
         ]
         ax.legend(handles=legend_elements, loc="lower right", frameon=True,
                   framealpha=0.9, edgecolor="#cccccc")
 
-    ax.set_title("Cobenfy (Xanomeline-Trospium): Disproportionality Signals in FAERS",
+    ax.set_title("Xanomeline-Trospium (Cobenfy): Disproportionality Signals in FAERS",
                  fontweight="bold", pad=12)
 
     plt.tight_layout()
@@ -171,7 +171,7 @@ def fig2_comparator_heatmap():
     sns.heatmap(log_pivot, ax=ax, cmap=cmap, center=0,
                 vmin=-5, vmax=5,
                 linewidths=0.5, linecolor="white",
-                cbar_kws={"label": "log₂(ROR) — Cobenfy vs Comparator",
+                cbar_kws={"label": "log₂(ROR), xanomeline-trospium vs comparator",
                           "shrink": 0.6},
                 annot=False, fmt=".1f")
 
@@ -185,7 +185,7 @@ def fig2_comparator_heatmap():
 
     ax.set_xlabel("")
     ax.set_ylabel("")
-    ax.set_title("Active-Comparator Disproportionality: Cobenfy vs D2 Antagonists\n"
+    ax.set_title("Active-Comparator Disproportionality: Xanomeline-Trospium vs D2 Antagonists\n"
                  "(* = Bonferroni-significant)", fontweight="bold", pad=12)
 
     plt.tight_layout()
@@ -276,7 +276,10 @@ def fig4_time_to_onset():
         shape = row["shape"]
         scale = row["scale"]
         pt = row["pt"]
-        n = int(row["n_reports"])
+        # Report the number of reports actually used in the Weibull fit (valid
+        # dates), matching manuscript Table 5's n column — not the larger
+        # total-report count (n_reports).
+        n = int(row["n_fitted"])
 
         # Weibull survival function: S(t) = exp(-(t/scale)^shape)
         survival = np.exp(-(t / scale) ** shape)
@@ -361,25 +364,30 @@ def fig5_label_concordance():
     if "ror" in novel.columns:
         novel = novel.dropna(subset=["ror"]).sort_values("ror", ascending=False)
 
-    # Load disease classification
-    disease_path = SUPP_DIR / "signal_classification_disease_vs_drug.csv"
-    if disease_path.exists():
-        disease_df = pd.read_csv(disease_path)
-        novel = novel.merge(
-            disease_df[["pt", "disease_manifestation", "classification"]],
-            on="pt", how="left"
-        )
+    # Load final expert-adjudicated 3-category classification (consistent with Fig 1
+    # and the manuscript; NOT the provisional rule-based disease_vs_drug file).
+    class_path = SUPP_DIR / "signal_classification_final.csv"
+    if class_path.exists():
+        class_df = pd.read_csv(class_path)
+        class_df["_ptkey"] = class_df["pt"].astype(str).str.upper()
+        novel["_ptkey"] = novel["pt"].astype(str).str.upper()
+        novel = novel.merge(class_df[["_ptkey", "classification"]],
+                            on="_ptkey", how="left")
 
     ax2.axis("off")
     text_lines = ["NOVEL SIGNALS (not in FDA label)\n"]
-    if "disease_manifestation" in novel.columns:
-        pharma = novel[novel["disease_manifestation"] == False]
-        disease = novel[novel["disease_manifestation"] == True]
+    if "classification" in novel.columns:
+        pharma = novel[novel["classification"] == "Pharmacological"]
+        disease = novel[novel["classification"] == "Disease manifestation"]
+        indet = novel[novel["classification"] == "Indeterminate"]
         text_lines.append(f"Pharmacological ({len(pharma)}):")
-        for _, r in pharma.head(15).iterrows():
+        for _, r in pharma.head(12).iterrows():
             text_lines.append(f"  • {r['pt']:<35s} ROR={r['ror']:.1f}")
         text_lines.append(f"\nDisease manifestation ({len(disease)}):")
         for _, r in disease.head(10).iterrows():
+            text_lines.append(f"  • {r['pt']:<35s} ROR={r['ror']:.1f}")
+        text_lines.append(f"\nIndeterminate ({len(indet)}):")
+        for _, r in indet.head(10).iterrows():
             text_lines.append(f"  • {r['pt']:<35s} ROR={r['ror']:.1f}")
     else:
         for _, r in novel.head(20).iterrows():
@@ -434,7 +442,7 @@ def fig6_outcome_severity():
         ax.set_title(label, fontweight="bold")
         ax.invert_yaxis()
 
-    plt.suptitle("Outcome Severity: Cobenfy vs Active Comparators",
+    plt.suptitle("Outcome Severity: Xanomeline-Trospium vs Active Comparators",
                  fontweight="bold", fontsize=11, y=1.02)
     plt.tight_layout()
     out = FIG_DIR / "fig6_outcome_severity.png"

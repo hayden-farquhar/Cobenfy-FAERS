@@ -28,10 +28,11 @@ Requires: data/processed/faers.duckdb (from script 02)
 
 import duckdb
 import time
+import os
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DB_PATH = PROJECT_ROOT / "data" / "processed" / "faers.duckdb"
+DB_PATH = Path(os.environ["FAERS_DB"]) if os.environ.get("FAERS_DB") else (PROJECT_ROOT / "data" / "processed" / "faers.duckdb")
 
 # ── Drug pattern definitions ────────────────────────────────────────────────
 # Each entry: standardised name -> list of UPPERCASE patterns to match
