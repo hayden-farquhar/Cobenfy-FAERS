@@ -1,4 +1,5 @@
 pt,category,label_section,signal,ror
+ANGIOEDEMA,concordant,Warning 5.4,True,
 CONSTIPATION,concordant,Table 3 (7%),True,
 DYSPEPSIA,concordant,Table 3 (9%),True,
 GASTROOESOPHAGEAL REFLUX DISEASE,concordant,Table 3 (3%),True,
@@ -10,7 +11,6 @@ URINARY RETENTION,concordant,Warning 5.3,True,
 VOMITING,concordant,Table 3 (12%),True,
 ABDOMINAL DISTENSION,label_only (no signal),Table 3 (2%),False,
 ABDOMINAL PAIN,label_only (no signal),Table 3 (4%),False,
-ANGIOEDEMA,label_only (no signal),Warning 5.4,False,
 DIARRHOEA,label_only (no signal),Table 3 (4%),False,
 DIZZINESS,label_only (no signal),Table 3 (3%),False,
 HEADACHE,label_only (no signal),Table 3 (2%),False,
@@ -20,50 +20,57 @@ WEIGHT INCREASED,label_only (no signal),Table 3 (2%),False,
 GASTROESOPHAGEAL REFLUX DISEASE,"label_only (not tested, <3 reports)",Table 3 (3%),False,
 QT PROLONGATION,"label_only (not tested, <3 reports)",Warning 5.2,False,
 SYNCOPE,"label_only (not tested, <3 reports)",Warning 5.5,False,
-ABDOMINAL DISCOMFORT,novel (not on label),,True,2.3024
-ABNORMAL BEHAVIOUR,novel (not on label),,True,4.2344
-ADVERSE EVENT,novel (not on label),,True,4.4026
-AGGRESSION,novel (not on label),,True,4.7136
-AGITATION,novel (not on label),,True,2.9535
-AKATHISIA,novel (not on label),,True,10.4251
-AMPHETAMINES POSITIVE,novel (not on label),,True,207.1304
-ANGER,novel (not on label),,True,9.2388
-ANURIA,novel (not on label),,True,8.0579
-COLD SWEAT,novel (not on label),,True,6.2718
-DELUSION,novel (not on label),,True,7.6132
-DROOLING,novel (not on label),,True,60.9801
-DRY MOUTH,novel (not on label),,True,6.2094
-DYSKINESIA,novel (not on label),,True,3.2470
-DYSPHAGIA,novel (not on label),,True,2.2968
-DYSURIA,novel (not on label),,True,7.5813
-EXTRAPYRAMIDAL DISORDER,novel (not on label),,True,4.9706
-GASTROINTESTINAL DISORDER,novel (not on label),,True,3.1251
-HALLUCINATION,novel (not on label),,True,2.4710
-"HALLUCINATION, AUDITORY",novel (not on label),,True,25.1105
-"HALLUCINATION, VISUAL",novel (not on label),,True,6.2621
-HICCUPS,novel (not on label),,True,8.0274
-HYPERHIDROSIS,novel (not on label),,True,6.5484
-HYPERSOMNIA,novel (not on label),,True,3.4167
-INCREASED APPETITE,novel (not on label),,True,4.8188
-INTRUSIVE THOUGHTS,novel (not on label),,True,20.4727
-MANIA,novel (not on label),,True,10.5467
-MOVEMENT DISORDER,novel (not on label),,True,4.9389
-NEGATIVE THOUGHTS,novel (not on label),,True,18.0639
-PARANOIA,novel (not on label),,True,14.0626
-PRODUCT ADMINISTRATION ERROR,novel (not on label),,True,2.9956
-PRODUCT SUPPLY ISSUE,novel (not on label),,True,4.8836
-PSYCHOTIC DISORDER,novel (not on label),,True,15.3055
-RETCHING,novel (not on label),,True,4.4961
-SALIVARY HYPERSECRETION,novel (not on label),,True,23.7667
-SCHIZOPHRENIA,novel (not on label),,True,8.6733
-SEDATION,novel (not on label),,True,4.7415
-SEDATION COMPLICATION,novel (not on label),,True,13.9798
-SUICIDAL IDEATION,novel (not on label),,True,3.5263
-TACHYPHRENIA,novel (not on label),,True,25.9822
-THERAPEUTIC RESPONSE UNEXPECTED,novel (not on label),,True,2.7902
-THINKING ABNORMAL,novel (not on label),,True,7.1289
-TREATMENT NONCOMPLIANCE,novel (not on label),,True,6.9586
-TREMOR,novel (not on label),,True,2.6206
-VIOLENCE-RELATED SYMPTOM,novel (not on label),,True,81.7105
-VISION BLURRED,novel (not on label),,True,5.6497
-VOMITING PROJECTILE,novel (not on label),,True,23.3749
+ABDOMINAL DISCOMFORT,novel (not on label),,True,2.4015
+ABNORMAL BEHAVIOUR,novel (not on label),,True,5.8106
+ADVERSE EVENT,novel (not on label),,True,4.9842
+AGGRESSION,novel (not on label),,True,3.8905
+AGITATION,novel (not on label),,True,3.8039
+AKATHISIA,novel (not on label),,True,9.5527
+AMPHETAMINES POSITIVE,novel (not on label),,True,190.7163
+ANGER,novel (not on label),,True,8.6434
+ANURIA,novel (not on label),,True,8.7669
+APATHY,novel (not on label),,True,3.6863
+COLD SWEAT,novel (not on label),,True,6.8686
+DELUSION,novel (not on label),,True,6.2816
+DROOLING,novel (not on label),,True,63.6432
+DRY MOUTH,novel (not on label),,True,6.4921
+DYSKINESIA,novel (not on label),,True,3.6622
+DYSPHAGIA,novel (not on label),,True,2.2400
+DYSURIA,novel (not on label),,True,7.7962
+EXTRAPYRAMIDAL DISORDER,novel (not on label),,True,5.4713
+FEELING OF BODY TEMPERATURE CHANGE,novel (not on label),,True,7.4029
+GASTROINTESTINAL DISORDER,novel (not on label),,True,2.7414
+HALLUCINATION,novel (not on label),,True,2.9513
+"HALLUCINATION, AUDITORY",novel (not on label),,True,25.8781
+"HALLUCINATION, VISUAL",novel (not on label),,True,5.9997
+HICCUPS,novel (not on label),,True,6.3757
+HYPERHIDROSIS,novel (not on label),,True,7.3998
+HYPERSOMNIA,novel (not on label),,True,3.6083
+INCREASED APPETITE,novel (not on label),,True,3.9308
+INTRUSIVE THOUGHTS,novel (not on label),,True,22.1231
+IRRITABILITY,novel (not on label),,True,2.3837
+MANIA,novel (not on label),,True,15.4284
+MOVEMENT DISORDER,novel (not on label),,True,4.9887
+NEGATIVE THOUGHTS,novel (not on label),,True,14.8720
+NIGHT SWEATS,novel (not on label),,True,2.4019
+PARANOIA,novel (not on label),,True,12.3367
+PRODUCT SUPPLY ISSUE,novel (not on label),,True,3.9847
+PSYCHIATRIC DECOMPENSATION,novel (not on label),,True,22.9511
+PSYCHOTIC DISORDER,novel (not on label),,True,15.9632
+RETCHING,novel (not on label),,True,3.6159
+SALIVARY HYPERSECRETION,novel (not on label),,True,29.1452
+SCHIZOAFFECTIVE DISORDER,novel (not on label),,True,24.1736
+SCHIZOPHRENIA,novel (not on label),,True,11.7275
+SEDATION,novel (not on label),,True,4.3087
+SEDATION COMPLICATION,novel (not on label),,True,10.8755
+SOLILOQUY,novel (not on label),,True,37.1509
+SUICIDAL IDEATION,novel (not on label),,True,2.8723
+TACHYPHRENIA,novel (not on label),,True,20.1815
+THERAPEUTIC RESPONSE UNEXPECTED,novel (not on label),,True,2.9936
+THINKING ABNORMAL,novel (not on label),,True,6.9109
+TREATMENT NONCOMPLIANCE,novel (not on label),,True,6.9964
+TREMOR,novel (not on label),,True,2.4761
+URINARY INCONTINENCE,novel (not on label),,True,3.9249
+VIOLENCE-RELATED SYMPTOM,novel (not on label),,True,64.5268
+VISION BLURRED,novel (not on label),,True,6.2431
+VOMITING PROJECTILE,novel (not on label),,True,18.6263

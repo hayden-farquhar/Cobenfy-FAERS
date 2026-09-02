@@ -1,57 +1,65 @@
 pt,a,ror,ror_lower95,ror_upper95,n_methods_signal,disease_manifestation,classification,disease_reason
-NAUSEA,314,7.5438,6.6543,8.5521,4,False,Pharmacological signal,
-VOMITING,239,8.4432,7.3460,9.7042,4,False,Pharmacological signal,
-CONSTIPATION,110,6.4570,5.3153,7.8439,4,False,Pharmacological signal,
-URINARY RETENTION,92,44.0264,35.5470,54.5284,4,False,Pharmacological signal,
-DROOLING,30,60.9801,42.2506,88.0122,4,False,Pharmacological signal,
-DYSPEPSIA,51,7.1954,5.4440,9.5103,4,False,Pharmacological signal,
-VISION BLURRED,50,5.6497,4.2638,7.4859,4,False,Pharmacological signal,
-HYPERHIDROSIS,46,6.5484,4.8855,8.7773,4,False,Pharmacological signal,
-TREATMENT NONCOMPLIANCE,35,6.9586,4.9827,9.7181,4,False,Pharmacological signal,
-GASTROOESOPHAGEAL REFLUX DISEASE,36,6.2253,4.4781,8.6543,4,False,Pharmacological signal,
-DRY MOUTH,35,6.2094,4.4467,8.6710,4,False,Pharmacological signal,
-GASTROINTESTINAL DISORDER,30,3.1251,2.1821,4.4757,4,False,Pharmacological signal,
-SALIVARY HYPERSECRETION,15,23.7667,14.3413,39.3866,4,False,Pharmacological signal,
-DYSURIA,16,7.5813,4.6596,12.3350,4,False,Pharmacological signal,
-SUICIDAL IDEATION,18,3.5263,2.2276,5.5820,4,True,Disease manifestation,Common comorbid symptom
-TACHYCARDIA,22,3.8775,2.5550,5.8845,4,False,Pharmacological signal,
-ADVERSE EVENT,24,4.4026,2.9508,6.5686,4,False,Pharmacological signal,
-HEART RATE INCREASED,24,3.7482,2.5125,5.5917,4,False,Pharmacological signal,
-"HALLUCINATION, AUDITORY",25,25.1105,16.9099,37.2879,4,True,Disease manifestation,Core positive symptom of schizophrenia
-PSYCHOTIC DISORDER,26,15.3055,10.3983,22.5285,4,True,Disease manifestation,Primary diagnosis / disease worsening
-DELUSION,8,7.6132,3.8713,14.9718,4,True,Disease manifestation,Core positive symptom of schizophrenia
-AKATHISIA,7,10.4251,5.0719,21.4282,4,False,Pharmacological signal,
-VOMITING PROJECTILE,6,23.3749,10.7416,50.8663,4,False,Pharmacological signal,
-COLD SWEAT,6,6.2718,2.8969,13.5786,4,False,Pharmacological signal,
-INTRUSIVE THOUGHTS,3,20.4727,7.1118,58.9350,4,True,Disease manifestation,Cognitive symptom overlap
-AMPHETAMINES POSITIVE,3,207.1304,66.8483,641.7965,4,True,Disease manifestation,Substance use comorbidity marker
-TACHYPHRENIA,4,25.9822,10.2025,66.1679,4,True,Disease manifestation,Thought acceleration (psychotic feature)
-THINKING ABNORMAL,5,7.1289,3.0786,16.5083,4,True,Disease manifestation,Cognitive symptom of schizophrenia
-SEDATION,12,4.7415,2.7142,8.2829,4,False,Pharmacological signal,
-PARANOIA,12,14.0626,8.0339,24.6152,4,True,Disease manifestation,Core positive symptom of schizophrenia
-ANGER,13,9.2388,5.3952,15.8206,4,True,Disease manifestation,Behavioural symptom of schizophrenia
-AGGRESSION,11,4.7136,2.6355,8.4303,4,True,Disease manifestation,Behavioural symptom of schizophrenia
-SCHIZOPHRENIA,8,8.6733,4.4092,17.0614,4,True,Disease manifestation,Primary diagnosis itself
-MANIA,8,10.5467,5.3589,20.7568,4,True,Disease manifestation,Mood episode / schizoaffective overlap
-"HALLUCINATION, VISUAL",10,6.2621,3.4073,11.5087,4,True,Disease manifestation,Positive symptom of schizophrenia
-MOVEMENT DISORDER,9,4.9389,2.6061,9.3596,4,False,Pharmacological signal,
-NEGATIVE THOUGHTS,3,18.0639,6.2812,51.9495,4,True,Disease manifestation,Negative/cognitive symptom
-SEDATION COMPLICATION,3,13.9798,4.8692,40.1372,4,False,Pharmacological signal,
-VIOLENCE-RELATED SYMPTOM,3,81.7105,27.6922,241.1009,4,True,Disease manifestation,Behavioural symptom of schizophrenia
-INCREASED APPETITE,8,4.8188,2.4522,9.4696,4,False,Pharmacological signal,
-RETCHING,6,4.4961,2.0778,9.7289,4,False,Pharmacological signal,
-HICCUPS,4,8.0274,3.1725,20.3113,4,False,Pharmacological signal,
-ANURIA,3,8.0579,2.8134,23.0789,4,False,Pharmacological signal,
-EXTRAPYRAMIDAL DISORDER,3,4.9706,1.7377,14.2184,3,False,Pharmacological signal,
-SOMNOLENCE,32,2.5837,1.8241,3.6596,3,False,Pharmacological signal,
-ABDOMINAL DISCOMFORT,28,2.3024,1.5884,3.3372,3,False,Pharmacological signal,
-ABNORMAL BEHAVIOUR,5,4.2344,1.8303,9.7962,3,True,Disease manifestation,Behavioural symptom of schizophrenia
-HALLUCINATION,14,2.4710,1.4722,4.1474,3,True,Disease manifestation,Core positive symptom of schizophrenia
-DYSPHAGIA,14,2.2968,1.3684,3.8548,3,False,Pharmacological signal,
-PRODUCT SUPPLY ISSUE,4,4.8836,1.9323,12.3428,3,False,Pharmacological signal,
-THERAPEUTIC RESPONSE UNEXPECTED,6,2.7902,1.2901,6.0346,3,False,Pharmacological signal,
-PRODUCT ADMINISTRATION ERROR,6,2.9956,1.3850,6.4791,3,False,Pharmacological signal,
-DYSKINESIA,7,3.2470,1.5829,6.6607,3,False,Pharmacological signal,
-HYPERSOMNIA,6,3.4167,1.5795,7.3908,3,False,Pharmacological signal,
-TREMOR,23,2.6206,1.7424,3.9412,3,False,Pharmacological signal,
-AGITATION,10,2.9535,1.6083,5.4238,3,True,Disease manifestation,Behavioural symptom of schizophrenia
+NAUSEA,365,6.8721,6.1231,7.7127,4,False,Pharmacological signal,
+VOMITING,297,8.5190,7.5182,9.6531,4,False,Pharmacological signal,
+CONSTIPATION,134,6.3889,5.3564,7.6203,4,False,Pharmacological signal,
+URINARY RETENTION,112,43.9422,36.1937,53.3496,4,False,Pharmacological signal,
+VISION BLURRED,68,6.2431,4.9005,7.9535,4,False,Pharmacological signal,
+HYPERHIDROSIS,62,7.3998,5.7447,9.5316,4,False,Pharmacological signal,
+DYSPEPSIA,65,7.4959,5.8523,9.6012,4,False,Pharmacological signal,
+DRY MOUTH,45,6.4921,4.8329,8.7210,4,False,Pharmacological signal,
+DROOLING,38,63.6432,45.8805,88.2828,4,False,Pharmacological signal,
+GASTROOESOPHAGEAL REFLUX DISEASE,42,5.8817,4.3353,7.9796,4,False,Pharmacological signal,
+TREATMENT NONCOMPLIANCE,43,6.9964,5.1740,9.4606,4,False,Pharmacological signal,
+DYSURIA,20,7.7962,5.0371,12.0664,4,False,Pharmacological signal,
+AGITATION,16,3.8039,2.3408,6.1816,4,True,Disease manifestation,Behavioural symptom of schizophrenia
+SALIVARY HYPERSECRETION,23,29.1452,19.3085,43.9930,4,False,Pharmacological signal,
+TACHYCARDIA,24,3.4166,2.2918,5.0935,4,False,Pharmacological signal,
+"HALLUCINATION, AUDITORY",32,25.8781,18.2260,36.7430,4,True,Disease manifestation,Core positive symptom of schizophrenia
+PSYCHOTIC DISORDER,33,15.9632,11.3162,22.5186,4,True,Disease manifestation,Primary diagnosis / disease worsening
+ADVERSE EVENT,34,4.9842,3.5559,6.9863,4,False,Pharmacological signal,
+HEART RATE INCREASED,35,4.0054,2.8714,5.5874,4,False,Pharmacological signal,
+ANGER,15,8.6434,5.2331,14.2760,4,True,Disease manifestation,Behavioural symptom of schizophrenia
+MANIA,15,15.4284,9.3285,25.5171,4,True,Disease manifestation,Mood episode / schizoaffective overlap
+INTRUSIVE THOUGHTS,4,22.1231,8.6989,56.2634,4,True,Disease manifestation,Cognitive symptom overlap
+VIOLENCE-RELATED SYMPTOM,3,64.5268,22.0030,189.2330,4,True,Disease manifestation,Behavioural symptom of schizophrenia
+NEGATIVE THOUGHTS,3,14.8720,5.1781,42.7138,4,True,Disease manifestation,Negative/cognitive symptom
+AKATHISIA,8,9.5527,4.8565,18.7901,4,False,Pharmacological signal,
+VOMITING PROJECTILE,6,18.6263,8.5726,40.4704,4,False,Pharmacological signal,
+THINKING ABNORMAL,6,6.9109,3.1923,14.9612,4,True,Disease manifestation,Cognitive symptom of schizophrenia
+ABNORMAL BEHAVIOUR,9,5.8106,3.0666,11.0102,4,True,Disease manifestation,Behavioural symptom of schizophrenia
+DELUSION,8,6.2816,3.1963,12.3448,4,True,Disease manifestation,Core positive symptom of schizophrenia
+COLD SWEAT,8,6.8686,3.4945,13.5007,4,False,Pharmacological signal,
+MOVEMENT DISORDER,11,4.9887,2.7903,8.9193,4,False,Pharmacological signal,
+"HALLUCINATION, VISUAL",12,5.9997,3.4350,10.4793,4,True,Disease manifestation,Positive symptom of schizophrenia
+SCHIZOAFFECTIVE DISORDER,3,24.1736,8.3836,69.7026,4,False,Pharmacological signal,
+SOLILOQUY,3,37.1509,12.8140,107.7094,4,False,Pharmacological signal,
+AMPHETAMINES POSITIVE,3,190.7163,61.7819,588.7278,4,True,Disease manifestation,Substance use comorbidity marker
+TACHYPHRENIA,4,20.1815,7.9412,51.2885,4,True,Disease manifestation,Thought acceleration (psychotic feature)
+PSYCHIATRIC DECOMPENSATION,4,22.9511,9.0217,58.3872,4,False,Pharmacological signal,
+SCHIZOPHRENIA,13,11.7275,6.8477,20.0848,4,True,Disease manifestation,Primary diagnosis itself
+PARANOIA,13,12.3367,7.2024,21.1309,4,True,Disease manifestation,Core positive symptom of schizophrenia
+SEDATION,13,4.3087,2.5199,7.3675,4,False,Pharmacological signal,
+DYSKINESIA,10,3.6622,1.9947,6.7238,4,False,Pharmacological signal,
+HICCUPS,4,6.3757,2.5218,16.1194,4,False,Pharmacological signal,
+SEDATION COMPLICATION,3,10.8755,3.7930,31.1823,4,False,Pharmacological signal,
+SOMNOLENCE,42,2.7605,2.0354,3.7437,4,False,Pharmacological signal,
+AGGRESSION,11,3.8905,2.1766,6.9541,4,True,Disease manifestation,Behavioural symptom of schizophrenia
+FEELING OF BODY TEMPERATURE CHANGE,3,7.4029,2.5857,21.1945,4,False,Pharmacological signal,
+ANURIA,4,8.7669,3.4644,22.1848,4,False,Pharmacological signal,
+GASTROINTESTINAL DISORDER,32,2.7414,1.9368,3.8801,3,False,Pharmacological signal,
+DYSPHAGIA,17,2.2400,1.3982,3.5886,3,False,Pharmacological signal,
+HALLUCINATION,21,2.9513,1.9279,4.5180,3,True,Disease manifestation,Core positive symptom of schizophrenia
+SUICIDAL IDEATION,18,2.8723,1.8157,4.5437,3,True,Disease manifestation,Common comorbid symptom
+ABDOMINAL DISCOMFORT,36,2.4015,1.7297,3.3342,3,False,Pharmacological signal,
+TREMOR,27,2.4761,1.6982,3.6102,3,False,Pharmacological signal,
+INCREASED APPETITE,8,3.9308,2.0014,7.7201,3,False,Pharmacological signal,
+PRODUCT SUPPLY ISSUE,4,3.9847,1.5775,10.0653,3,False,Pharmacological signal,
+HYPERSOMNIA,8,3.6083,1.8374,7.0861,3,False,Pharmacological signal,
+THERAPEUTIC RESPONSE UNEXPECTED,8,2.9936,1.5246,5.8779,3,False,Pharmacological signal,
+URINARY INCONTINENCE,8,3.9249,1.9984,7.7084,3,False,Pharmacological signal,
+APATHY,4,3.6863,1.4595,9.3105,3,False,Pharmacological signal,
+EXTRAPYRAMIDAL DISORDER,4,5.4713,2.1648,13.8281,3,False,Pharmacological signal,
+IRRITABILITY,8,2.3837,1.2142,4.6796,3,False,Pharmacological signal,
+RETCHING,6,3.6159,1.6720,7.8198,3,False,Pharmacological signal,
+NIGHT SWEATS,8,2.4019,1.2235,4.7153,3,False,Pharmacological signal,
+ANGIOEDEMA,8,2.3578,1.2010,4.6287,3,False,Pharmacological signal,

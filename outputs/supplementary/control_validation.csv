@@ -1,12 +1,12 @@
 drug,pt,a,n_drug,ror,ror_lower,ror_upper,signal,type,expectation
-olanzapine,WEIGHT INCREASED,432,6926,5.5774,5.0553,6.1533,True,positive,Expected strong signal
-olanzapine,HYPERGLYCAEMIA,31,6926,3.1295,2.2007,4.4503,True,positive,Expected signal
-olanzapine,DIABETES MELLITUS,59,6926,2.9295,2.2665,3.7865,True,positive,Expected signal
-risperidone,HYPERPROLACTINAEMIA,140,6254,208.6438,167.8521,259.3487,True,positive,Expected strong signal
-risperidone,TARDIVE DYSKINESIA,65,6254,27.0282,20.9572,34.8579,True,positive,Expected signal
-quetiapine,SOMNOLENCE,519,9074,6.8976,6.3043,7.5468,True,positive,Expected strong signal
-quetiapine,WEIGHT INCREASED,599,9074,5.9642,5.4840,6.4864,True,positive,Expected signal
-aripiprazole,AKATHISIA,239,5516,119.3386,102.7588,138.5934,True,positive,Expected signal
-olanzapine,URINARY RETENTION,72,6926,6.6360,5.2499,8.3879,True,negative,Not expected
-aripiprazole,WEIGHT INCREASED,367,5516,5.9632,5.3598,6.6346,True,negative,Weak/no signal expected
-quetiapine,HYPERPROLACTINAEMIA,55,9074,39.0578,29.2712,52.1164,True,negative,Weak signal expected
+olanzapine,WEIGHT INCREASED,497,8055,5.6681,5.1720,6.2117,True,positive,Expected strong signal
+olanzapine,HYPERGLYCAEMIA,38,8055,3.3179,2.4126,4.5627,True,positive,Expected signal
+olanzapine,DIABETES MELLITUS,68,8055,3.0053,2.3660,3.8172,True,positive,Expected signal
+risperidone,HYPERPROLACTINAEMIA,162,7380,206.9398,169.1637,253.1517,True,positive,Expected strong signal
+risperidone,TARDIVE DYSKINESIA,102,7380,36.0827,29.3540,44.3539,True,positive,Expected signal
+quetiapine,SOMNOLENCE,642,10869,7.2018,6.6413,7.8095,True,positive,Expected strong signal
+quetiapine,WEIGHT INCREASED,660,10869,5.6013,5.1722,6.0659,True,positive,Expected signal
+aripiprazole,AKATHISIA,279,6707,113.4691,98.8534,130.2459,True,positive,Expected signal
+olanzapine,URINARY RETENTION,84,8055,6.7407,5.4258,8.3742,True,negative,Not expected
+aripiprazole,WEIGHT INCREASED,421,6707,5.7595,5.2145,6.3615,True,negative,Weak/no signal expected
+quetiapine,HYPERPROLACTINAEMIA,56,10869,32.9791,24.8690,43.7340,True,negative,Weak signal expected

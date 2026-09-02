@@ -1,8 +1,9 @@
-shape,scale,median_tto,mean_tto,n_fitted,pct_early,pct_intermediate,pct_late,hazard_pattern,pt,n_reports
-0.5906,15.6796,2.0000,18.3978,61,90.3226,7.5269,2.1505,decreasing,Vomiting,93
-0.5869,11.7293,1.0000,14.2135,60,91.0112,7.8652,1.1236,decreasing,Nausea,89
-0.6615,10.4798,1.0000,10.2553,32,93.6170,6.3830,0.0000,decreasing,Constipation,47
-0.5568,15.4382,1.0000,19.1429,21,91.4286,5.7143,2.8571,decreasing,Dizziness,35
-0.8484,11.1351,3.0000,8.6452,22,93.5484,6.4516,0.0000,decreasing,Dyspepsia,31
-0.7127,8.7742,0.5000,5.7917,12,95.8333,4.1667,0.0000,decreasing,Hyperhidrosis,24
-0.9069,4.3425,0.0000,2.0000,10,100.0000,0.0000,0.0000,decreasing,Urinary retention,23
+shape,scale,median_tto,mean_tto,n_fitted,pct_early,pct_intermediate,pct_late,onset_pattern,pt,n_reports
+0.5430,15.8602,1.0000,21.0167,77,90.0000,5.8333,4.1667,early,Vomiting,120
+0.5846,9.9870,1.0000,11.8818,71,92.7273,6.3636,0.9091,early,Nausea,110
+0.6665,10.3123,1.0000,8.1000,33,95.0000,5.0000,0.0000,early,Constipation,60
+0.5498,14.2900,1.0000,17.2051,22,92.3077,5.1282,2.5641,early,Dizziness,39
+0.8191,9.7367,1.0000,7.4054,25,94.5946,5.4054,0.0000,early,Dyspepsia,37
+0.7331,9.4286,1.0000,6.3667,16,93.3333,6.6667,0.0000,early,Hyperhidrosis,30
+0.8949,4.7702,0.0000,2.0333,12,100.0000,0.0000,0.0000,early,Urinary retention,30
+0.6248,11.2595,1.0000,10.9500,12,95.0000,5.0000,0.0000,early,Vision blurred,20

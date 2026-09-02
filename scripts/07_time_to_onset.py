@@ -6,10 +6,15 @@ dates (THER table) and event dates (DEMO table).
 
 Method:
     TTO = event_dt - start_dt (from THER table for the Cobenfy drug entry)
-    Fit Weibull distribution to characterise onset patterns:
-        - β < 1: decreasing hazard (early-onset, suggests direct toxicity)
-        - β = 1: constant hazard (exponential; time-independent)
-        - β > 1: increasing hazard (late-onset, suggests cumulative effect)
+    Fit Weibull distribution to characterise onset patterns. FAERS has no risk
+    set (no denominator of patients under observation and still at risk), so
+    these fits are descriptive summaries of the reported-onset distribution and
+    do NOT estimate a hazard function. The shape parameter is read only as an
+    index of the shape of that distribution:
+        - β < 1: onsets concentrated shortly after initiation (front-loaded,
+                 monotonically decreasing onset density)
+        - β = 1: constant-rate (exponential) onset pattern
+        - β > 1: onsets concentrated later
 
     Categorisation:
         - Early:        <30 days
@@ -168,7 +173,9 @@ def fit_weibull(tto_days: np.ndarray) -> dict:
         "pct_early": early,
         "pct_intermediate": intermediate,
         "pct_late": late,
-        "hazard_pattern": "decreasing" if shape < 1 else ("constant" if abs(shape - 1) < 0.1 else "increasing"),
+        # Descriptive label for the shape of the reported-onset distribution.
+        # NOT a hazard classification: FAERS provides no risk set.
+        "onset_pattern": "early" if shape < 1 else ("constant" if abs(shape - 1) < 0.1 else "late"),
     }
 
 
@@ -230,7 +237,7 @@ def main():
                 f"{result['median_tto']:>5.0f} "
                 f"{result['shape']:>6.2f} {result['scale']:>7.1f} "
                 f"{result['pct_early']:>6.1f}% {result['pct_intermediate']:>6.1f}% "
-                f"{result['pct_late']:>5.1f}% {result['hazard_pattern']:<12s}"
+                f"{result['pct_late']:>5.1f}% {result['onset_pattern']:<12s}"
             )
 
     # ── Stratified analysis ─────────────────────────────────────────────

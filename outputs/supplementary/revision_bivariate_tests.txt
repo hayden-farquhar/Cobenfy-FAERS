@@ -1,0 +1,3 @@
+Age Kruskal-Wallis: H=1499.1356, df=6, p=0.000000e+00
+Sex chi-square: chi2=1188.0739, df=6, p=1.824308e-253
+Reporter HCP chi-square: chi2=1307.7965, df=6, p=2.222869e-279

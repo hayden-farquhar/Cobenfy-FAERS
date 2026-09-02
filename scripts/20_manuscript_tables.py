@@ -126,13 +126,22 @@ def t5():
     w = pd.read_csv(T / "time_to_onset_weibull.csv")
     L = ["### Table 5. Time-to-onset analysis: Weibull parameters for key adverse events",
          "",
-         "| Preferred Term | n | Median TTO (days) | Weibull beta | Weibull scale | % onset <30d |",
-         "|---|---|---|---|---|---|"]
+         "| Preferred Term | Reports with valid dates | n fitted | Median TTO (days) | Weibull beta | Weibull scale | % onset <30d |",
+         "|---|---|---|---|---|---|---|"]
     for _, r in w.sort_values("n_reports", ascending=False).iterrows():
-        L.append(f"| {r['pt']} | {int(r['n_fitted'])} | {r['median_tto']:.1f} | {r['shape']:.2f} "
-                 f"| {r['scale']:.1f} | {r['pct_early']:.1f} |")
+        L.append(f"| {r['pt']} | {int(r['n_reports'])} | {int(r['n_fitted'])} | {r['median_tto']:.1f} "
+                 f"| {r['shape']:.2f} | {r['scale']:.1f} | {r['pct_early']:.1f} |")
     L.append("")
-    L.append("All shape parameters (beta) < 1 indicate early-onset events with decreasing hazard.")
+    L.append("TTO = time to onset. Weibull models require strictly positive onset times, so reports "
+             "recording a same-day (day 0) onset are excluded from the fit: \"n fitted\" is the number "
+             "of reports contributing to the Weibull estimate, whereas median TTO and the percentage "
+             "with onset < 30 days are calculated over all reports with valid dates, including "
+             "same-day onsets, and therefore use the larger denominator. Because same-day reports are "
+             "excluded, the shape parameter is estimated from onsets occurring after day 0 and, if "
+             "anything, understates how front-loaded the reported onsets are. All shape parameters "
+             "(beta) < 1 indicate a front-loaded onset density, with reported onsets concentrated "
+             "shortly after initiation. Weibull fits are descriptive summaries of reported onset "
+             "times and do not estimate a hazard function, as FAERS provides no risk set.")
     return "\n".join(L)
 
 

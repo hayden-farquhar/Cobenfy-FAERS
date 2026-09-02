@@ -119,7 +119,7 @@ def fig1_forest_plot():
         ax.legend(handles=legend_elements, loc="lower right", frameon=True,
                   framealpha=0.9, edgecolor="#cccccc")
 
-    ax.set_title("Xanomeline-Trospium (Cobenfy): Disproportionality Signals in FAERS",
+    ax.set_title("Xanomeline-Trospium: Disproportionality Signals in FAERS",
                  fontweight="bold", pad=12)
 
     plt.tight_layout()
@@ -298,7 +298,7 @@ def fig4_time_to_onset():
 
     ax.legend(bbox_to_anchor=(1.02, 1), loc="upper left", frameon=False, fontsize=7)
     ax.set_title("Time-to-Onset: Weibull Cumulative Distribution\n"
-                 "(β < 1 indicates early-onset, decreasing hazard)",
+                 "(β < 1 indicates a front-loaded onset density)",
                  fontweight="bold", pad=12)
 
     plt.tight_layout()

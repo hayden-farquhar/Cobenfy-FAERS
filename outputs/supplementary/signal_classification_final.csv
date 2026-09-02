@@ -1,0 +1,65 @@
+pt,n,ror,ror_lower95,ror_upper95,prr,prr_chi2,ebgm,eb05,ic,ic025,n_methods_signal,classification,notes
+TREATMENT NONCOMPLIANCE,43,6.9964,5.174,9.4606,6.8481,205.4898,6.6735,5.1644,2.7693,2.3406,4,Disease manifestation,"Illness-course/behavioural, not pharmacology"
+PSYCHOTIC DISORDER,33,15.9632,11.3162,22.5186,15.6783,426.9734,14.7146,10.9633,3.9542,3.4656,4,Disease manifestation,Disease
+"HALLUCINATION, AUDITORY",32,25.8781,18.226,36.743,25.4185,701.1771,23.2601,17.1807,4.6402,4.1442,4,Disease manifestation,Core positive symptom
+HALLUCINATION,21,2.9513,1.9279,4.518,2.9275,23.6392,2.8541,1.9733,1.5479,0.938,3,Disease manifestation,Core positive symptom
+SUICIDAL IDEATION,18,2.8723,1.8157,4.5437,2.8526,18.7585,2.7716,1.8594,1.5106,0.8532,3,Disease manifestation,Psychiatric disease manifestation
+AGITATION,16,3.8039,2.3408,6.1816,3.7776,28.3896,3.6337,2.3784,1.9148,1.2186,4,Disease manifestation,Psychiatric symptom
+ANGER,15,8.6434,5.2331,14.276,8.576,88.7128,7.9448,5.1256,3.0921,2.3739,4,Disease manifestation,Behavioural/psychiatric
+MANIA,15,15.4284,9.3285,25.5171,15.3013,177.7102,13.5811,8.7425,3.9198,3.2016,4,Disease manifestation,Psychiatric symptom
+SCHIZOPHRENIA,13,11.7275,6.8477,20.0848,11.6452,110.1208,10.4341,6.5072,3.5301,2.7605,4,Disease manifestation,Diagnosis itself
+PARANOIA,13,12.3367,7.2024,21.1309,12.2497,116.9512,10.9291,6.8143,3.6024,2.8328,4,Disease manifestation,Positive symptom
+"HALLUCINATION, VISUAL",12,5.9997,3.435,10.4793,5.9642,42.0931,5.559,3.4039,2.5712,1.7714,4,Disease manifestation,Psychotic symptom
+AGGRESSION,11,3.8905,2.1766,6.9541,3.8716,19.0842,3.6618,2.1934,1.9502,1.1163,4,Disease manifestation,Behavioural/psychiatric
+ABNORMAL BEHAVIOUR,9,5.8106,3.0666,11.0102,5.7847,28.5662,5.2929,3.0013,2.5274,1.61,4,Disease manifestation,Behavioural/psychiatric
+IRRITABILITY,8,2.3837,1.2142,4.6796,2.377,4.3145,2.2499,1.2322,1.2481,0.2782,3,Disease manifestation,Behavioural/psychiatric
+DELUSION,8,6.2816,3.1963,12.3448,6.256,27.6784,5.6357,3.0865,2.6399,1.67,4,Disease manifestation,Positive symptom
+TACHYPHRENIA,4,20.1815,7.9412,51.2885,20.1325,47.4584,13.2926,5.5744,4.3121,2.9791,4,Disease manifestation,Racing thoughts; psychiatric (mania/psychosis)
+APATHY,4,3.6863,1.4595,9.3105,3.6794,4.2372,3.2239,1.3789,1.8772,0.5442,3,Disease manifestation,Negative symptom of schizophrenia
+PSYCHIATRIC DECOMPENSATION,4,22.9511,9.0217,58.3872,22.8949,54.7662,14.675,6.104,4.4947,3.1618,4,Disease manifestation,Disease worsening
+INTRUSIVE THOUGHTS,4,22.1231,8.6989,56.2634,22.0691,52.5834,14.2625,5.948,4.4426,3.1096,4,Disease manifestation,Psychiatric symptom
+SOLILOQUY,3,37.1509,12.814,107.7094,37.079,60.0481,19.1935,6.5416,5.1771,3.6657,4,Disease manifestation,Psychotic symptom
+SCHIZOAFFECTIVE DISORDER,3,24.1736,8.3836,69.7026,24.1275,37.7261,13.7671,5.0025,4.57,3.0586,4,Disease manifestation,Diagnosis itself
+NEGATIVE THOUGHTS,3,14.872,5.1781,42.7138,14.8444,21.5746,9.7,3.6201,3.8785,2.3671,4,Disease manifestation,Negative symptom of schizophrenia
+VIOLENCE-RELATED SYMPTOM,3,64.5268,22.003,189.233,64.4003,106.1338,33.2779,9.4705,5.9469,4.4355,4,Disease manifestation,Behavioural/disease manifestation
+AMPHETAMINES POSITIVE,3,190.7163,61.7819,588.7278,190.3388,301.5956,120.6064,29.2573,7.3934,5.882,4,Disease manifestation,Comorbid substance use (magnitude ignored per rules)
+ADVERSE EVENT,34,4.9842,3.5559,6.9863,4.9061,99.722,4.7899,3.5883,2.2905,1.8091,4,Indeterminate,Wholly nonspecific term
+MOVEMENT DISORDER,11,4.9887,2.7903,8.9193,4.9626,28.8508,4.6438,2.7815,2.3071,1.4733,4,Indeterminate,Nonspecific; drug-vs-disease attribution both plausible in non-D2 agent
+DYSKINESIA,10,3.6622,1.9947,6.7238,3.6463,15.2209,3.4396,2.0087,1.8639,0.9913,4,Indeterminate,Classically drug (tardive) but Cobenfy non-D2; ambiguous
+AKATHISIA,8,9.5527,4.8565,18.7901,9.5113,48.5636,8.2449,4.5114,3.2407,2.2708,4,Indeterminate,Classically drug EPS but Cobenfy is non-D2; overlaps agitation
+INCREASED APPETITE,8,3.9308,2.0014,7.7201,3.9166,13.082,3.6339,1.9905,1.9669,0.997,3,Indeterminate,Could be drug metabolic or illness-related; neither dominates
+THERAPEUTIC RESPONSE UNEXPECTED,8,2.9936,1.5246,5.8779,2.984,7.6011,2.8022,1.5348,1.5755,0.6056,3,Indeterminate,Nonspecific efficacy term; ambiguous attribution
+THINKING ABNORMAL,6,6.9109,3.1923,14.9612,6.8891,21.9293,5.9662,2.9759,2.7784,1.6693,4,Indeterminate,Overlaps cognitive symptom of psychosis and drug CNS effect
+PRODUCT SUPPLY ISSUE,4,3.9847,1.5775,10.0653,3.9771,4.9541,3.4613,1.4805,1.9891,0.6561,3,Indeterminate,Administrative/product term; neither drug effect nor disease
+EXTRAPYRAMIDAL DISORDER,4,5.4713,2.1648,13.8281,5.4598,8.669,4.5988,1.967,2.4447,1.1117,3,Indeterminate,EPS term but non-D2 mechanism; may reflect prior antipsychotic/disease
+NAUSEA,365,6.8721,6.1231,7.7127,5.6519,1437.9755,5.6211,5.1536,2.4937,2.3458,4,Pharmacological,Cholinergic GI effect (classic)
+VOMITING,297,8.519,7.5182,9.6531,7.2473,1619.507,7.1907,6.5303,2.8505,2.6866,4,Pharmacological,Cholinergic GI effect
+CONSTIPATION,134,6.3889,5.3564,7.6203,5.9768,552.3672,5.9183,5.1245,2.574,2.3302,4,Pharmacological,Anticholinergic (trospium) classic effect
+URINARY RETENTION,112,43.9422,36.1937,53.3496,41.1958,4201.5787,39.2305,33.4136,5.3184,5.0519,4,Pharmacological,Anticholinergic (trospium M3) classic effect
+VISION BLURRED,68,6.2431,4.9005,7.9535,6.0389,278.6985,5.9426,4.8503,2.5888,2.2472,4,Pharmacological,Anticholinergic (trospium) accommodation effect
+DYSPEPSIA,65,7.4959,5.8523,9.6012,7.254,340.8072,7.1134,5.7786,2.8519,2.5025,4,Pharmacological,GI drug effect
+HYPERHIDROSIS,62,7.3998,5.7447,9.5316,7.1724,319.7557,7.0297,5.6819,2.8357,2.478,4,Pharmacological,Cholinergic sweating (M agonism)
+DRY MOUTH,45,6.4921,4.8329,8.721,6.3501,194.4977,6.2035,4.829,2.661,2.2418,4,Pharmacological,Anticholinergic (trospium) classic effect
+GASTROOESOPHAGEAL REFLUX DISEASE,42,5.8817,4.3353,7.9796,5.7637,158.0102,5.6338,4.3465,2.5219,2.0881,4,Pharmacological,Autonomic/GI motility effect
+SOMNOLENCE,42,2.7605,2.0354,3.7437,2.7179,43.1215,2.6837,2.0705,1.4409,1.0072,4,Pharmacological,Drug CNS/sedation effect
+DROOLING,38,63.6432,45.8805,88.2828,62.2721,2098.2605,57.6766,43.3879,5.8914,5.4357,4,Pharmacological,Cholinergic salivation from central M1/M4 agonism
+ABDOMINAL DISCOMFORT,36,2.4015,1.7297,3.3342,2.3724,26.5185,2.341,1.7683,1.2452,0.7771,3,Pharmacological,GI drug effect
+HEART RATE INCREASED,35,4.0054,2.8714,5.5874,3.9448,72.4765,3.8678,2.9098,1.977,1.5024,4,Pharmacological,Anticholinergic tachycardia
+GASTROINTESTINAL DISORDER,32,2.7414,1.9368,3.8801,2.7092,31.9006,2.6655,1.9788,1.4363,0.9403,3,Pharmacological,Nonspecific but GI; cholinergic GI stimulation
+TREMOR,27,2.4761,1.6982,3.6102,2.453,20.9745,2.4096,1.7414,1.2933,0.7541,3,Pharmacological,Autonomic/cholinergic drug effect
+TACHYCARDIA,24,3.4166,2.2918,5.0935,3.383,36.591,3.3002,2.3377,1.756,1.1847,4,Pharmacological,Anticholinergic (trospium) cardiac effect
+SALIVARY HYPERSECRETION,23,29.1452,19.3085,43.993,28.7691,563.5172,25.5118,17.7388,4.8152,4.2319,4,Pharmacological,Cholinergic salivation from M agonism
+DYSURIA,20,7.7962,5.0371,12.0664,7.7169,106.4005,7.3063,5.004,2.9408,2.3162,4,Pharmacological,Anticholinergic (trospium M3) lower urinary tract effect
+DYSPHAGIA,17,2.24,1.3982,3.5886,2.2276,9.5531,2.1702,1.4389,1.1545,0.4786,3,Pharmacological,Anticholinergic (dry mouth/oesophageal) drug effect
+SEDATION,13,4.3087,2.5199,7.3675,4.2833,27.7139,4.0689,2.5408,2.0955,1.3259,4,Pharmacological,Drug CNS effect
+URINARY INCONTINENCE,8,3.9249,1.9984,7.7084,3.9108,13.0464,3.6286,1.9876,1.9647,0.9948,3,Pharmacological,Overflow from anticholinergic retention
+NIGHT SWEATS,8,2.4019,1.2235,4.7153,2.3951,4.4071,2.2666,1.2413,1.259,0.2891,3,Pharmacological,Cholinergic sweating
+HYPERSOMNIA,8,3.6083,1.8374,7.0861,3.5957,11.1575,3.3499,1.8349,1.8439,0.874,3,Pharmacological,Drug CNS/sedation effect
+COLD SWEAT,8,6.8686,3.4945,13.5007,6.8403,31.4018,6.1183,3.3505,2.7681,1.7982,4,Pharmacological,Cholinergic/autonomic sweating
+ANGIOEDEMA,8,2.3578,1.201,4.6287,2.3512,4.183,2.2263,1.2193,1.2324,0.2625,3,Pharmacological,Hypersensitivity drug reaction
+RETCHING,6,3.6159,1.672,7.8198,3.6062,7.5825,3.2899,1.6415,1.8481,0.739,3,Pharmacological,Cholinergic GI effect
+VOMITING PROJECTILE,6,18.6263,8.5726,40.4704,18.5611,74.8345,13.8952,6.8522,4.1957,3.0866,4,Pharmacological,Cholinergic GI effect
+HICCUPS,4,6.3757,2.5218,16.1194,6.3619,10.9953,5.2566,2.2479,2.6644,1.3314,4,Pharmacological,GI/autonomic drug effect
+ANURIA,4,8.7669,3.4644,22.1848,8.747,17.2481,6.8879,2.9421,3.1212,1.7883,4,Pharmacological,Severe anticholinergic urinary retention
+SEDATION COMPLICATION,3,10.8755,3.793,31.1823,10.8558,14.6287,7.6775,2.8833,3.4311,1.9196,4,Pharmacological,Drug CNS/sedation effect
+FEELING OF BODY TEMPERATURE CHANGE,3,7.4029,2.5857,21.1945,7.3902,8.6427,5.6627,2.1331,2.8798,1.3683,4,Pharmacological,Autonomic/thermoregulatory (cholinergic)
