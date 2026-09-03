@@ -116,8 +116,10 @@ def fig1_forest_plot():
             Line2D([0], [0], marker='o', color='w', markerfacecolor='#FFFFFF',
                    markeredgecolor='#333333', markersize=7, label='Indeterminate'),
         ]
-        ax.legend(handles=legend_elements, loc="lower right", frameon=True,
-                  framealpha=0.9, edgecolor="#cccccc")
+        # Placed below the axes: an in-axes legend at lower right overlaps the
+        # right-hand n= annotations on the bottom rows.
+        ax.legend(handles=legend_elements, loc="upper center",
+                  bbox_to_anchor=(0.5, -0.06), ncol=3, frameon=False)
 
     ax.set_title("Xanomeline-Trospium: Disproportionality Signals in FAERS",
                  fontweight="bold", pad=12)
@@ -426,11 +428,14 @@ def fig6_outcome_severity():
     outcome_cols = ["pct_death", "pct_hosp"]
     outcome_labels = ["Death (%)", "Hospitalisation (%)"]
 
-    drugs = df["drug"].tolist()
+    # The source CSV carries the brand name; the paper uses the generic name
+    # throughout (undertaken in the first-round response).
+    is_index = df["drug"].str.lower().isin(["cobenfy", "xanomeline-trospium"])
+    drugs = df["drug"].mask(is_index, "Xanomeline-Trospium").tolist()
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.5), sharey=True)
 
-    palette = ["#D32F2F" if d == "Cobenfy" else "#78909C" for d in drugs]
+    palette = ["#D32F2F" if flag else "#78909C" for flag in is_index]
 
     for idx, (col, label) in enumerate(zip(outcome_cols, outcome_labels)):
         ax = axes[idx]
