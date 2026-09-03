@@ -48,11 +48,16 @@ repository/
 - Python 3.10+
 - ~50 GB disk space for raw FAERS files
 - ~1.5 GB for the DuckDB database
+- Node.js and mermaid-cli, for the case-selection flow diagram only (script 14)
 
 ### Setup
 
 ```bash
 pip install -r requirements.txt
+
+# Only needed to regenerate the flow diagram (script 14):
+npm install -g @mermaid-js/mermaid-cli
+npx puppeteer browsers install chrome-headless-shell
 ```
 
 ### Running the Pipeline

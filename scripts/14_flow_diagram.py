@@ -1,302 +1,237 @@
 """
-Script 14: Generate case-selection flow diagram for manuscript.
+Script 14: Generate the case-selection flow diagram for the manuscript.
 
-Produces a PRISMA-style flow diagram showing the data processing pipeline
-from raw FAERS downloads through to the final analytic cohort.
+Emits a Mermaid flowchart and renders it to PNG and PDF. Mermaid is the
+portfolio standard for flowcharts; matplotlib is reserved for data-driven
+figures. Hand-placing boxes and connectors in matplotlib had produced
+misaligned arrows and a large amount of dead white space.
+
+Counts are read from the database at build time, never hardcoded, so the
+diagram cannot drift from the analysis.
+
+Note on the exclusion step. The previous version reported the excluded cases
+as `count(role_cod = 'C')`, labelled "concomitant role only". That query
+counts every case carrying a concomitant record, including cases that ALSO
+carry a suspect record, so it both mislabelled the quantity and failed to
+balance: 1,779 - 16 != 1,758. The exclusion is now the complement of the
+PS/SS set, broken down by role, and the balance is asserted before rendering.
 
 Usage:
     python scripts/14_flow_diagram.py
 
-Requires: data/processed/faers.duckdb
+Requires: data/processed/faers.duckdb, mermaid-cli (mmdc) on PATH.
 """
+
+import json
+import shutil
+import subprocess
+import sys
+from pathlib import Path
 
 import duckdb
 import pandas as pd
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = PROJECT_ROOT / "data" / "processed" / "faers.duckdb"
+TABLE_DIR = PROJECT_ROOT / "outputs" / "tables"
+SUPP_DIR = PROJECT_ROOT / "outputs" / "supplementary"
 FIG_DIR = PROJECT_ROOT / "outputs" / "figures"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
-plt.rcParams.update({
-    "font.family": "sans-serif",
-    "font.sans-serif": ["Helvetica", "Arial", "DejaVu Sans"],
-    "font.size": 9,
-    "figure.dpi": 300,
-    "savefig.dpi": 300,
-    "savefig.bbox": "tight",
-})
-
 DRUG = "xanomeline-trospium"
+COMPARATORS = ["olanzapine", "risperidone", "aripiprazole",
+               "quetiapine", "lurasidone", "brexpiprazole"]
+
+# Okabe-Ito, the portfolio's colourblind-safe palette. Light fills with
+# saturated strokes so the boxes stay legible in greyscale print.
+PROCESS_FILL, PROCESS_LINE = "#E4F0F8", "#0072B2"
+EXCLUDE_FILL, EXCLUDE_LINE = "#FBEAE1", "#D55E00"
+RESULT_FILL, RESULT_LINE = "#E2F2EC", "#009E73"
+ASIDE_FILL, ASIDE_LINE = "#F7EAF1", "#CC79A7"
 
 
 def get_counts(con):
-    """Extract case counts at each processing stage."""
-    counts = {}
+    """Case counts at each processing stage, read from the database."""
+    def q(sql):
+        return con.execute(sql).fetchone()[0]
 
-    # Total cases in database (after dedup)
-    counts["total_dedup"] = con.execute(
-        "SELECT count(DISTINCT primaryid) FROM demo"
-    ).fetchone()[0]
+    c = {
+        "total_dedup": q("SELECT count(DISTINCT primaryid) FROM demo"),
+        "with_drug": q("SELECT count(DISTINCT primaryid) FROM drug_std"),
+        "all_roles": q(f"SELECT count(DISTINCT primaryid) FROM drug_std "
+                       f"WHERE std_drug = '{DRUG}'"),
+        "ps_ss": q(f"SELECT count(DISTINCT primaryid) FROM drug_std "
+                   f"WHERE std_drug = '{DRUG}' AND UPPER(role_cod) IN ('PS','SS')"),
+        "ps": q(f"SELECT count(DISTINCT primaryid) FROM drug_std "
+                f"WHERE std_drug = '{DRUG}' AND UPPER(role_cod) = 'PS'"),
+        "ss": q(f"SELECT count(DISTINCT primaryid) FROM drug_std "
+                f"WHERE std_drug = '{DRUG}' AND UPPER(role_cod) = 'SS'"),
+    }
 
-    # Total with any drug record
-    counts["with_drug"] = con.execute(
-        "SELECT count(DISTINCT primaryid) FROM drug_std"
-    ).fetchone()[0]
-
-    # Cobenfy - all roles
-    counts["cobenfy_all"] = con.execute(f"""
-        SELECT count(DISTINCT primaryid) FROM drug_std
+    # Excluded = has a record for the index drug but never as primary or
+    # secondary suspect. Broken down by role so the arithmetic is auditable.
+    by_role = dict(con.execute(f"""
+        SELECT UPPER(role_cod) AS rc, count(DISTINCT primaryid) AS n
+        FROM drug_std
         WHERE std_drug = '{DRUG}'
-    """).fetchone()[0]
+          AND primaryid NOT IN (
+              SELECT primaryid FROM drug_std
+              WHERE std_drug = '{DRUG}' AND UPPER(role_cod) IN ('PS','SS'))
+        GROUP BY 1
+    """).fetchall())
+    c["excl_concomitant"] = by_role.get("C", 0)
+    c["excl_interacting"] = by_role.get("I", 0)
+    c["excl_total"] = c["all_roles"] - c["ps_ss"]
+    c["not_drug"] = c["with_drug"] - c["all_roles"]
 
-    # Cobenfy PS+SS
-    counts["cobenfy_ps_ss"] = con.execute(f"""
-        SELECT count(DISTINCT primaryid) FROM drug_std
-        WHERE std_drug = '{DRUG}'
-          AND UPPER(role_cod) IN ('PS', 'SS')
-    """).fetchone()[0]
+    c["comparators"] = {
+        d: q(f"SELECT count(DISTINCT primaryid) FROM drug_std "
+             f"WHERE std_drug = '{d}' AND UPPER(role_cod) IN ('PS','SS')")
+        for d in COMPARATORS
+    }
 
-    # Cobenfy PS only
-    counts["cobenfy_ps"] = con.execute(f"""
-        SELECT count(DISTINCT primaryid) FROM drug_std
-        WHERE std_drug = '{DRUG}'
-          AND UPPER(role_cod) = 'PS'
-    """).fetchone()[0]
+    dis = pd.read_csv(TABLE_DIR / "disproportionality_cobenfy_full.csv")
+    c["pairs"] = len(dis)
+    c["consensus"] = int((dis["n_methods_signal"] >= 3).sum())
+    c["all_four"] = int((dis["n_methods_signal"] == 4).sum())
 
-    # Cobenfy SS only
-    counts["cobenfy_ss"] = con.execute(f"""
-        SELECT count(DISTINCT primaryid) FROM drug_std
-        WHERE std_drug = '{DRUG}'
-          AND UPPER(role_cod) = 'SS'
-    """).fetchone()[0]
+    cls = pd.read_csv(SUPP_DIR / "signal_classification_final.csv")
+    vc = cls["classification"].value_counts()
+    c["pharmacological"] = int(vc.get("Pharmacological", 0))
+    c["disease"] = int(vc.get("Disease manifestation", 0))
+    c["indeterminate"] = int(vc.get("Indeterminate", 0))
 
-    # Cobenfy concomitant only
-    counts["cobenfy_concom"] = con.execute(f"""
-        SELECT count(DISTINCT primaryid) FROM drug_std
-        WHERE std_drug = '{DRUG}'
-          AND UPPER(role_cod) = 'C'
-    """).fetchone()[0]
-
-    # Drug-PT pairs tested
-    counts["drug_pt_pairs"] = con.execute(f"""
-        SELECT count(DISTINCT UPPER(r.pt))
-        FROM reac r
-        INNER JOIN drug_std d ON r.primaryid = d.primaryid
-        WHERE d.std_drug = '{DRUG}'
-          AND UPPER(d.role_cod) IN ('PS', 'SS')
-        GROUP BY UPPER(r.pt)
-        HAVING count(DISTINCT r.primaryid) >= 3
-    """).fetchdf().shape[0]
-
-    # Comparator counts
-    for comp in ["olanzapine", "risperidone", "aripiprazole",
-                 "quetiapine", "lurasidone", "brexpiprazole"]:
-        counts[f"comp_{comp}"] = con.execute(f"""
-            SELECT count(DISTINCT primaryid) FROM drug_std
-            WHERE std_drug = '{comp}'
-              AND UPPER(role_cod) IN ('PS', 'SS')
-        """).fetchone()[0]
-
-    # Quarters
-    counts["quarters"] = con.execute("""
-        SELECT count(DISTINCT
-            SUBSTRING(fda_dt, 1, 4) || 'Q' ||
-            CASE
-                WHEN CAST(SUBSTRING(fda_dt, 5, 2) AS INTEGER) <= 3 THEN '1'
-                WHEN CAST(SUBSTRING(fda_dt, 5, 2) AS INTEGER) <= 6 THEN '2'
-                WHEN CAST(SUBSTRING(fda_dt, 5, 2) AS INTEGER) <= 9 THEN '3'
-                ELSE '4'
-            END)
-        FROM demo
-        WHERE fda_dt IS NOT NULL AND LENGTH(fda_dt) >= 6
-    """).fetchone()[0]
-
-    # Consensus signal + classification counts read from pipeline outputs
-    # (not hardcoded) so the flow diagram cannot drift from the analysis.
-    consensus = pd.read_csv(
-        PROJECT_ROOT / "outputs" / "tables" / "signals_cobenfy_consensus.csv"
-    )
-    counts["n_consensus"] = len(consensus)
-    clsf = pd.read_csv(
-        PROJECT_ROOT / "outputs" / "supplementary" / "signal_classification_final.csv"
-    )
-    vc = clsf["classification"].value_counts()
-    counts["n_pharm"] = int(vc.get("Pharmacological", 0))
-    counts["n_disease"] = int(vc.get("Disease manifestation", 0))
-    counts["n_indeterminate"] = int(vc.get("Indeterminate", 0))
-
-    return counts
+    _assert_balances(c)
+    return c
 
 
-def draw_flow_diagram(counts):
-    """Draw the case-selection flow diagram."""
-    fig, ax = plt.subplots(figsize=(10, 12))
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, 14)
-    ax.axis("off")
+def _assert_balances(c):
+    """Fail loudly rather than render a flow diagram that does not add up."""
+    checks = [
+        ("suspect-role exclusion balances",
+         c["all_roles"] - c["excl_total"] == c["ps_ss"]),
+        ("exclusion breakdown sums to total",
+         c["excl_concomitant"] + c["excl_interacting"] == c["excl_total"]),
+        ("non-index cases balance",
+         c["with_drug"] - c["not_drug"] == c["all_roles"]),
+        ("classification sums to consensus",
+         c["pharmacological"] + c["disease"] + c["indeterminate"] == c["consensus"]),
+        ("all-four is a subset of consensus", c["all_four"] <= c["consensus"]),
+    ]
+    bad = [name for name, ok in checks if not ok]
+    if bad:
+        sys.exit("flow diagram counts do not balance: " + "; ".join(bad))
 
-    # Box style
-    box_main = dict(boxstyle="round,pad=0.4", facecolor="#E3F2FD",
-                    edgecolor="#1565C0", linewidth=1.5)
-    box_excl = dict(boxstyle="round,pad=0.3", facecolor="#FFF3E0",
-                    edgecolor="#E65100", linewidth=1)
-    box_final = dict(boxstyle="round,pad=0.4", facecolor="#E8F5E9",
-                     edgecolor="#2E7D32", linewidth=1.5)
-    box_comp = dict(boxstyle="round,pad=0.3", facecolor="#F3E5F5",
-                    edgecolor="#6A1B9A", linewidth=1)
 
-    # Title
-    ax.text(5, 13.5, "Case Selection Flow Diagram",
-            ha="center", va="center", fontsize=13, fontweight="bold")
+def build_mermaid(c):
+    """Vertical spine, exclusions to one side, comparator panel to the other."""
+    comp = c["comparators"]
+    # Two per line keeps the aside compact; a tall narrow panel widens the
+    # whole graph and pushes the main spine off-centre.
+    ordered = sorted(COMPARATORS, key=lambda d: -comp[d])
+    pairs = [ordered[i:i + 2] for i in range(0, len(ordered), 2)]
+    comp_lines = "<br/>".join(
+        " &nbsp;&middot;&nbsp; ".join(f"{d.capitalize()} {comp[d]:,}" for d in row)
+        for row in pairs)
 
-    # Box 1: FAERS download
-    ax.text(5, 12.5,
-            f"FAERS quarterly ASCII files downloaded\n"
-            f"Q4 2024 -- Q1 2026 (6 quarters)",
-            ha="center", va="center", fontsize=9, bbox=box_main)
+    return f"""---
+config:
+  theme: base
+  themeVariables:
+    fontFamily: Helvetica, Arial, sans-serif
+    fontSize: 15px
+    lineColor: "#55606B"
+    edgeLabelBackground: "#FFFFFF"
+  flowchart:
+    nodeSpacing: 34
+    rankSpacing: 42
+    padding: 12
+    useMaxWidth: false
+    curve: linear
+    wrappingWidth: 320
+---
+flowchart TD
+    A["<b>FAERS quarterly ASCII files</b><br/>Q4 2024 to Q1 2026 (6 quarters)"]
+    B["<b>Deduplicated by CASEID</b><br/>most recent report version retained<br/><b>n = {c['total_dedup']:,}</b> unique cases"]
+    C["<b>Drug names standardised (RxNorm)</b><br/>6 xanomeline-trospium name variants mapped<br/><b>n = {c['with_drug']:,}</b> cases with drug records"]
+    D["<b>Xanomeline-trospium cases</b><br/>any role code &nbsp;&middot;&nbsp; <b>n = {c['all_roles']:,}</b>"]
+    E["<b>Primary or secondary suspect</b><br/><b>n = {c['ps_ss']:,}</b> analytic cohort<br/>PS {c['ps']:,} &nbsp;&middot;&nbsp; SS {c['ss']:,}"]
+    F["<b>Drug-event pairs with n &ge; 3</b><br/><b>{c['pairs']}</b> preferred terms tested<br/>four-method disproportionality battery"]
+    G["<b>{c['consensus']} consensus signals</b><br/>positive on &ge; 3 of 4 methods ({c['all_four']} on all four)<br/>{c['pharmacological']} pharmacological &nbsp;&middot;&nbsp; {c['disease']} disease &nbsp;&middot;&nbsp; {c['indeterminate']} indeterminate"]
 
-    # Arrow
-    ax.annotate("", xy=(5, 11.6), xytext=(5, 12.0),
-                arrowprops=dict(arrowstyle="->", color="#333"))
+    X1["Not xanomeline-trospium<br/><b>n = {c['not_drug']:,}</b>"]
+    X2["No suspect role &nbsp;&middot;&nbsp; <b>n = {c['excl_total']}</b><br/>concomitant only {c['excl_concomitant']} &nbsp;&middot;&nbsp; interacting only {c['excl_interacting']}"]
+    P["<b>Active comparators</b> (PS or SS)<br/>{comp_lines}"]
 
-    # Box 2: Deduplication
-    ax.text(5, 11.2,
-            f"Deduplicated by CASEID\n"
-            f"(most recent report version retained)\n"
-            f"n = {counts['total_dedup']:,} unique cases",
-            ha="center", va="center", fontsize=9, bbox=box_main)
+    A --> B --> C --> D --> E --> F --> G
+    P -. head-to-head .-> F
+    C -- excluded --> X1
+    D -- excluded --> X2
 
-    # Arrow
-    ax.annotate("", xy=(5, 10.1), xytext=(5, 10.6),
-                arrowprops=dict(arrowstyle="->", color="#333"))
+    classDef process fill:{PROCESS_FILL},stroke:{PROCESS_LINE},stroke-width:1.4px,color:#10242E
+    classDef exclude fill:{EXCLUDE_FILL},stroke:{EXCLUDE_LINE},stroke-width:1.2px,color:#3A1D0C
+    classDef result  fill:{RESULT_FILL},stroke:{RESULT_LINE},stroke-width:1.8px,color:#0C2B22
+    classDef aside   fill:{ASIDE_FILL},stroke:{ASIDE_LINE},stroke-width:1.2px,color:#331020
 
-    # Box 3: Drug standardisation
-    ax.text(5, 9.7,
-            f"Drug names standardised via RxNorm\n"
-            f"6 xanomeline-trospium name variants mapped\n"
-            f"n = {counts['with_drug']:,} cases with drug records",
-            ha="center", va="center", fontsize=9, bbox=box_main)
+    class A,B,C,D,E,F process
+    class X1,X2 exclude
+    class G result
+    class P aside
+"""
 
-    # Arrow down + exclusion to right
-    ax.annotate("", xy=(5, 8.6), xytext=(5, 9.1),
-                arrowprops=dict(arrowstyle="->", color="#333"))
 
-    # Exclusion box: non-Cobenfy
-    excluded = counts["with_drug"] - counts["cobenfy_all"]
-    ax.text(8.2, 9.0,
-            f"Not xanomeline-trospium\n"
-            f"n = {excluded:,}",
-            ha="center", va="center", fontsize=8, bbox=box_excl)
-    ax.annotate("", xy=(7.2, 9.0), xytext=(5.8, 9.3),
-                arrowprops=dict(arrowstyle="->", color="#E65100",
-                                linestyle="--"))
+def _puppeteer_config():
+    """Point mermaid-cli at whatever headless Chrome is actually installed.
 
-    # Box 4: Cobenfy cases identified
-    ax.text(5, 8.2,
-            f"Xanomeline-trospium cases identified\n"
-            f"n = {counts['cobenfy_all']:,} (any role code)",
-            ha="center", va="center", fontsize=9, bbox=box_main)
+    mmdc pins an exact Chrome build and errors if only a different one is
+    present, which is the common case after `puppeteer browsers install`.
+    Passing an explicit executablePath avoids a version-pin failure that has
+    nothing to do with the diagram.
+    """
+    cache = Path.home() / ".cache" / "puppeteer"
+    candidates = sorted(cache.glob("chrome-headless-shell/*/*/chrome-headless-shell"))
+    candidates += sorted(cache.glob("chrome/*/*/Google Chrome for Testing.app/"
+                                    "Contents/MacOS/Google Chrome for Testing"))
+    if not candidates:
+        sys.exit("no headless Chrome found for mermaid-cli. Install one with:\n"
+                 "  npx puppeteer browsers install chrome-headless-shell")
+    cfg = FIG_DIR / ".puppeteer.json"
+    cfg.write_text(json.dumps(
+        {"executablePath": str(candidates[-1]), "args": ["--no-sandbox"]}))
+    return cfg
 
-    # Arrow + exclusion
-    ax.annotate("", xy=(5, 7.1), xytext=(5, 7.6),
-                arrowprops=dict(arrowstyle="->", color="#333"))
 
-    # Exclusion box: concomitant only
-    ax.text(8.2, 7.5,
-            f"Concomitant role only\n"
-            f"n = {counts['cobenfy_concom']:,}",
-            ha="center", va="center", fontsize=8, bbox=box_excl)
-    ax.annotate("", xy=(7.2, 7.5), xytext=(5.8, 7.8),
-                arrowprops=dict(arrowstyle="->", color="#E65100",
-                                linestyle="--"))
-
-    # Box 5: PS+SS cases
-    ax.text(5, 6.7,
-            f"Primary or secondary suspect cases\n"
-            f"n = {counts['cobenfy_ps_ss']:,}\n"
-            f"(PS: {counts['cobenfy_ps']:,}  |  SS: {counts['cobenfy_ss']:,})",
-            ha="center", va="center", fontsize=9, bbox=box_main)
-
-    # Arrow
-    ax.annotate("", xy=(5, 5.6), xytext=(5, 6.1),
-                arrowprops=dict(arrowstyle="->", color="#333"))
-
-    # Box 6: Disproportionality
-    ax.text(5, 5.2,
-            f"Drug-PT pairs with >= 3 reports\n"
-            f"n = {counts['drug_pt_pairs']} preferred terms tested\n"
-            f"4-method disproportionality battery applied",
-            ha="center", va="center", fontsize=9, bbox=box_main)
-
-    # Arrow
-    ax.annotate("", xy=(5, 4.1), xytext=(5, 4.6),
-                arrowprops=dict(arrowstyle="->", color="#333"))
-
-    # Box 7: Final signals
-    ax.text(5, 3.7,
-            "CONSENSUS SIGNALS\n"
-            f"{counts['n_consensus']} signals (>= 3/4 methods positive)\n"
-            f"{counts['n_pharm']} pharmacological  |  {counts['n_disease']} disease  |  "
-            f"{counts['n_indeterminate']} indeterminate",
-            ha="center", va="center", fontsize=9, fontweight="bold",
-            bbox=box_final)
-
-    # Comparator box (to the left)
-    comp_text = (
-        "Active Comparators (PS+SS)\n"
-        f"Olanzapine: {counts['comp_olanzapine']:,}\n"
-        f"Risperidone: {counts['comp_risperidone']:,}\n"
-        f"Aripiprazole: {counts['comp_aripiprazole']:,}\n"
-        f"Quetiapine: {counts['comp_quetiapine']:,}\n"
-        f"Lurasidone: {counts['comp_lurasidone']:,}\n"
-        f"Brexpiprazole: {counts['comp_brexpiprazole']:,}"
-    )
-    ax.text(1.5, 5.2, comp_text,
-            ha="center", va="center", fontsize=7.5, bbox=box_comp)
-    ax.annotate("", xy=(3.0, 5.2), xytext=(3.8, 5.2),
-                arrowprops=dict(arrowstyle="<-", color="#6A1B9A",
-                                linestyle="--"))
-
-    # Sensitivity analyses box (bottom)
-    # Subset case counts match manuscript Table 4 (6-quarter reconciled values).
-    ax.text(5, 2.3,
-            "Sensitivity Analyses\n"
-            f"PS-only (n={counts['cobenfy_ps']:,})  |  US-only (n=1,737)  |  HCP-only (n=709)\n"
-            "Serious-only (n=173)  |  Monotherapy (n=1,591)\n"
-            "Reporter-stratified  |  Age-sex stratified  |  Sequential (6 quarters)",
-            ha="center", va="center", fontsize=8, bbox=box_main)
-    ax.annotate("", xy=(5, 2.8), xytext=(5, 3.2),
-                arrowprops=dict(arrowstyle="->", color="#333"))
-
-    plt.tight_layout()
-    out = FIG_DIR / "fig0_flow_diagram.png"
-    fig.savefig(out)
-    fig.savefig(FIG_DIR / "fig0_flow_diagram.pdf")
-    plt.close(fig)
-    print(f"  Flow diagram saved: {out.name}")
+def render(mmd_path):
+    if shutil.which("mmdc") is None:
+        sys.exit("mermaid-cli (mmdc) not found on PATH; cannot render the flow diagram")
+    cfg = _puppeteer_config()
+    png = FIG_DIR / "fig0_flow_diagram.png"
+    pdf = FIG_DIR / "fig0_flow_diagram.pdf"
+    base = ["mmdc", "-i", str(mmd_path), "-b", "white", "-p", str(cfg)]
+    subprocess.run(base + ["-s", "3", "-o", str(png)], check=True, capture_output=True)
+    subprocess.run(base + ["-o", str(pdf), "--pdfFit"], check=True, capture_output=True)
+    cfg.unlink(missing_ok=True)
+    return png, pdf
 
 
 def main():
-    print("=" * 50)
-    print("  Generating Case-Selection Flow Diagram")
-    print("=" * 50)
-
     con = duckdb.connect(str(DB_PATH), read_only=True)
     counts = get_counts(con)
-    con.close()
 
-    print(f"\n  Key counts:")
-    for k, v in counts.items():
-        print(f"    {k}: {v:,}" if isinstance(v, int) else f"    {k}: {v}")
+    mmd = FIG_DIR / "fig0_flow_diagram.mmd"
+    mmd.write_text(build_mermaid(counts))
+    png, pdf = render(mmd)
 
-    draw_flow_diagram(counts)
-    print(f"\n  Done.")
+    (FIG_DIR / "fig0_flow_diagram_counts.json").write_text(
+        json.dumps(counts, indent=2))
+
+    print("  Case-selection flow diagram (Mermaid)")
+    print(f"    balance: {counts['all_roles']:,} - {counts['excl_total']} "
+          f"= {counts['ps_ss']:,}  "
+          f"({counts['excl_concomitant']} concomitant + "
+          f"{counts['excl_interacting']} interacting)")
+    for p in (mmd, png, pdf):
+        print(f"    -> {p.name}")
 
 
 if __name__ == "__main__":

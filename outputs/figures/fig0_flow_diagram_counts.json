@@ -1,0 +1,26 @@
+{
+  "total_dedup": 2154103,
+  "with_drug": 2154103,
+  "all_roles": 1779,
+  "ps_ss": 1758,
+  "ps": 1749,
+  "ss": 319,
+  "excl_concomitant": 15,
+  "excl_interacting": 6,
+  "excl_total": 21,
+  "not_drug": 2152324,
+  "comparators": {
+    "olanzapine": 8055,
+    "risperidone": 7380,
+    "aripiprazole": 6707,
+    "quetiapine": 10869,
+    "lurasidone": 938,
+    "brexpiprazole": 1598
+  },
+  "pairs": 179,
+  "consensus": 64,
+  "all_four": 47,
+  "pharmacological": 31,
+  "disease": 24,
+  "indeterminate": 9
+}

@@ -1,0 +1,43 @@
+---
+config:
+  theme: base
+  themeVariables:
+    fontFamily: Helvetica, Arial, sans-serif
+    fontSize: 15px
+    lineColor: "#55606B"
+    edgeLabelBackground: "#FFFFFF"
+  flowchart:
+    nodeSpacing: 34
+    rankSpacing: 42
+    padding: 12
+    useMaxWidth: false
+    curve: linear
+    wrappingWidth: 320
+---
+flowchart TD
+    A["<b>FAERS quarterly ASCII files</b><br/>Q4 2024 to Q1 2026 (6 quarters)"]
+    B["<b>Deduplicated by CASEID</b><br/>most recent report version retained<br/><b>n = 2,154,103</b> unique cases"]
+    C["<b>Drug names standardised (RxNorm)</b><br/>6 xanomeline-trospium name variants mapped<br/><b>n = 2,154,103</b> cases with drug records"]
+    D["<b>Xanomeline-trospium cases</b><br/>any role code &nbsp;&middot;&nbsp; <b>n = 1,779</b>"]
+    E["<b>Primary or secondary suspect</b><br/><b>n = 1,758</b> analytic cohort<br/>PS 1,749 &nbsp;&middot;&nbsp; SS 319"]
+    F["<b>Drug-event pairs with n &ge; 3</b><br/><b>179</b> preferred terms tested<br/>four-method disproportionality battery"]
+    G["<b>64 consensus signals</b><br/>positive on &ge; 3 of 4 methods (47 on all four)<br/>31 pharmacological &nbsp;&middot;&nbsp; 24 disease &nbsp;&middot;&nbsp; 9 indeterminate"]
+
+    X1["Not xanomeline-trospium<br/><b>n = 2,152,324</b>"]
+    X2["No suspect role &nbsp;&middot;&nbsp; <b>n = 21</b><br/>concomitant only 15 &nbsp;&middot;&nbsp; interacting only 6"]
+    P["<b>Active comparators</b> (PS or SS)<br/>Quetiapine 10,869 &nbsp;&middot;&nbsp; Olanzapine 8,055<br/>Risperidone 7,380 &nbsp;&middot;&nbsp; Aripiprazole 6,707<br/>Brexpiprazole 1,598 &nbsp;&middot;&nbsp; Lurasidone 938"]
+
+    A --> B --> C --> D --> E --> F --> G
+    P -. head-to-head .-> F
+    C -- excluded --> X1
+    D -- excluded --> X2
+
+    classDef process fill:#E4F0F8,stroke:#0072B2,stroke-width:1.4px,color:#10242E
+    classDef exclude fill:#FBEAE1,stroke:#D55E00,stroke-width:1.2px,color:#3A1D0C
+    classDef result  fill:#E2F2EC,stroke:#009E73,stroke-width:1.8px,color:#0C2B22
+    classDef aside   fill:#F7EAF1,stroke:#CC79A7,stroke-width:1.2px,color:#331020
+
+    class A,B,C,D,E,F process
+    class X1,X2 exclude
+    class G result
+    class P aside
