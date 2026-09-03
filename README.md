@@ -8,7 +8,7 @@ Reproducibility repository for the disproportionality analysis of xanomeline-tro
 
 ## Overview
 
-This repository contains the complete analytical pipeline for a post-marketing pharmacovigilance analysis of xanomeline-trospium, the first non-dopamine D2 receptor antagonist antipsychotic (FDA-approved September 2024). The analysis applies a four-method disproportionality battery (ROR, PRR, IC, EBGM) with active-comparator analyses against six D2 antagonists, time-to-onset Weibull modelling, E-value sensitivity analysis, and multiple robustness checks to FAERS data spanning Q4 2024 through Q1 2026.
+This repository contains the complete analytical pipeline for a post-marketing pharmacovigilance analysis of xanomeline-trospium, the first non-dopamine D2 receptor antagonist antipsychotic (FDA-approved September 2024). The analysis applies a four-method disproportionality battery (ROR, PRR, IC, EBGM) with active-comparator analyses against six D2 antagonists, time-to-onset Weibull modelling, and multiple robustness checks to FAERS data spanning Q4 2024 through Q1 2026.
 
 ## Repository Structure
 
@@ -28,15 +28,17 @@ repository/
 │   ├── 08_sensitivity.py             # PS-only, US-only, HCP-only, Weber effect
 │   ├── 09_mgps_refit.py              # Refit MGPS prior for EBGM correction
 │   ├── 10_supplementary.py           # Outcome severity, indication-restricted, controls
-│   ├── 11_additional_validation.py   # Sex/age strata, E-values, CYP2D6, sequential
+│   ├── 11_additional_validation.py   # Sex/age strata, CYP2D6, sequential, masking
 │   ├── 12_strengthening.py           # Serious-only, polypharmacy, reporter-stratified, MH
 │   ├── 13_figures.py                 # Publication-quality figures
-│   └── 14_flow_diagram.py            # Case-selection flow diagram
+│   ├── 14_flow_diagram.py            # Case-selection flow diagram (Mermaid)
+│   └── 15-20_*.py                    # Revision analyses (bivariate tests,
+│                                     #   classification reliability, robustness)
 ├── data/
 │   └── README.md                     # Instructions for obtaining FAERS data
 ├── outputs/
 │   ├── tables/                       # Primary analysis outputs (16 CSV files)
-│   ├── supplementary/                # Sensitivity and validation outputs (22 CSV files)
+│   ├── supplementary/                # Sensitivity and validation outputs (26 CSV files)
 │   └── figures/                      # Publication figures (7 figures, PNG + PDF)
 └── .gitignore
 ```
@@ -96,7 +98,7 @@ python scripts/09_mgps_refit.py
 # Step 10: Supplementary analyses (outcome severity, indication-restricted, controls)
 python scripts/10_supplementary.py
 
-# Step 11: Additional validation (sex/age strata, E-values, CYP2D6, sequential, masking)
+# Step 11: Additional validation (sex/age strata, CYP2D6, sequential, masking)
 python scripts/11_additional_validation.py
 
 # Step 12: Strengthening analyses (serious-only, polypharmacy, reporter-stratified, MH)
@@ -124,7 +126,7 @@ Key output files:
 - `outputs/supplementary/classification_reliability_summary.md` — rule-based vs expert agreement (76.6%; Cohen's kappa 0.57)
 - `outputs/supplementary/revision_bivariate_tests.txt` — age/sex/reporter bivariate tests across the seven agents
 - `outputs/supplementary/revision_cobenfy_indications.csv` — recorded indications for the xanomeline-trospium cohort
-- `outputs/supplementary/e_values.csv` — E-values for unmeasured confounding robustness
+- `outputs/supplementary/e_values.csv` — E-values, computed by script 11 but **not reported in the manuscript**: they address unmeasured confounding rather than the reporting and selection biases intrinsic to spontaneous reporting, and were removed at peer review
 
 ## Data
 
@@ -142,7 +144,6 @@ The intermediate DuckDB database (`data/processed/faers.duckdb`, ~1.4 GB) is als
 | Active comparator | ROR with Bonferroni (alpha=0.05/192) | 06 |
 | Demographic adjustment | Mantel-Haenszel (age x sex strata) | 12 |
 | Time-to-onset | Weibull parameterisation | 07 |
-| Confounding robustness | E-values (VanderWeele & Ding, 2017) | 11 |
 | Signal classification | Clinical review: pharmacological vs disease manifestation | 12 |
 | Sensitivity | PS-only, US-only, HCP-only, serious-only, polypharmacy-excluded | 08, 12 |
 | Reporting bias | Weber effect, reporter-stratified ROR, sequential detection | 08, 11, 12 |
@@ -150,19 +151,19 @@ The intermediate DuckDB database (`data/processed/faers.duckdb`, ~1.4 GB) is als
 ## Active Comparators
 
 Six D2 antagonist antipsychotics were used as active comparators:
-- Olanzapine (n=6,926)
-- Risperidone (n=6,254)
-- Aripiprazole (n=5,516)
-- Quetiapine (n=9,074)
-- Lurasidone (n=806)
-- Brexpiprazole (n=1,288)
+- Olanzapine (n=8,055)
+- Risperidone (n=7,380)
+- Aripiprazole (n=6,707)
+- Quetiapine (n=10,869)
+- Lurasidone (n=938)
+- Brexpiprazole (n=1,598)
 
 ## Key Findings
 
 - **1,758** xanomeline-trospium suspect cases identified across 6 FAERS quarters (Q4 2024-Q1 2026)
 - **64** consensus disproportionality signals: 31 pharmacological, 24 disease manifestations, 9 indeterminate
 - Gastrointestinal (nausea ROR 6.9, vomiting 8.5) and muscarinic/anticholinergic (urinary retention ROR 43.9, drooling 63.6) signals dominant
-- Weight gain, EPS, metabolic events, tardive dyskinesia, and hyperprolactinaemia absent or significantly reduced vs all 6 D2 antagonist comparators
+- Weight gain, EPS, metabolic events, tardive dyskinesia, and hyperprolactinemia absent or significantly reduced vs all 6 D2 antagonist comparators
 - All major adverse events early-onset (median 0--1 days, Weibull beta < 1)
 - Signals robust across primary-suspect, US-only, HCP-only, serious-outcome, and monotherapy sensitivity analyses
 - Drooling signal persists after excluding clozapine co-prescription (ROR 63.6 to 62.7)
